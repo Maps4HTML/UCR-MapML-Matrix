@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MapML UCR Fullfillment Matrix</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+
+    thead > tr {
+      background-color: gray;
+      color: white;
+    }
+
+    table td,
+    table th {
+      padding: 0;
+      border: gray 1px solid;
+      font-size: 16px;
+      padding: 0.15rem 0.3rem;
+    }
+
+    table th {
+      text-align: start;
+      font-weight: normal;
+    }
+
+    th.ucr-category {
+      font-weight: bold;
+      background-color: aliceblue;
+    }
+
+    th.ucr-group {
+      font-size: larger;
+      font-weight: bold;
+      background-color: gainsboro;
+      padding: 0.5rem 0.3rem;
+    }
+
+    th.capability {
+      max-width: 15rem;
+    }
+
+    span.index {
+      font-size: smaller;
+      text-decoration: none;
+      /* background-color: gray; */
+      color: gray;
+      /* padding: 2px; */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>MapML UCR Fullfillment Matrix</h1>
+  <!-- 
+  <table>
+    <tr>
+
+    <tr>
+      <th class="ucr-category" colspan="10"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#content-author-use-cases">Content author use cases (3.1)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-create-map">Display an interactive map within a web page (3.1.1)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-single-location">Display a map centered on a point location (3.1.2)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-static-map">Display a region of map data as a static image (3.1.3)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-multiple-location-markers">Display multiple point locations as map markers (3.1.4)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-poly-features">Display routes/paths or regions (3.1.5)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-html-annotations">Display custom web content describing map features (3.1.6)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-custom-map">Display custom imagery as a map layer (3.1.7)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-layers">Combine multiple layers of map tile data or features (3.1.8)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-alternative-layers">Provide alternative map layers which the user can select (3.1.9)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-technical-drawings">Display drawings or schematics without geographic coordinates (3.1.10)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-animated-spatial-data-in-layers">Include animated spatial data in a layer (3.1.11)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-require-interaction">Require interaction before allowing pan/zoom (or opt-out of such potentially default behavior) (3.1.12)</th>
+    </tr>
+    <tr>
+      <th class="ucr-category" colspan="10"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#visitor-use-cases">Website visitor use cases (3.2)
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-interactive"><bdi class="secno">3.2.1 </bdi>Reposition or scale a map to find more context for the displayed locations</>
+      </th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-reset-map-view">Reset the map to the initial view (3.2.2)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-rotate-map">Rotate a map, or reset the bearing (3.2.3)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-identify">Access additional information about a point on the map (3.2.4)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-hide-layers">Show/hide map layers or feature sets (3.2.5)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-bookmark">Bookmark a location
+          (3.2.6)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-search-features">Search or sort within a set of geographic features (3.2.7)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-color-scheme">Customize the color scheme (light/dark or high contrast) (3.2.8)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-view-location-securely">View the current location on a map, without disclosing to the website (3.2.9)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-fullscreen">View a map in fullscreen mode (3.2.10)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-picture-in-picture">View a map as a Picture-In-Picture media object (3.2.11)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-augmented-reality">View a map in augmented reality (3.2.12)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-offline-maps">Save map content for offline use (3.2.13)</th>
+    </tr>
+
+    <tr>
+      <th class="ucr-category" colspan="10"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#application-use-cases">Application developer use cases (3.3)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-add-custom-control">Add a custom control to a map (3.3.1)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-view-change-events">Provide feedback to a user as they manipulate the map (3.3.2)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-set-view-zoom">Move a map to a new position and/or zoom level (3.3.3)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-animate-view-change">Animate a map through a sequence of points (3.3.4)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-change-bearing-map">Change the bearing of a map (3.3.5)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-set-layer-visibility">Control which layers are currently visible &amp; which can be hidden by the user (3.3.6)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-generate-vector-features">Generate new vector features from data (3.3.7)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-heatmap">Generate a heatmap overlay from point intensity data (3.3.8)</th>
+    </tr>
+
+    <tr>
+      <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-drag-and-drop">Enable drag
+          &amp; drop for map layers (3.3.9)</th>
+    </tr>
+
+  </table> -->
+
+  <table>
+    <tr><th>Google Maps</th><td>Google Maps embeds and Google Maps Platform API</td></tr>
+    <tr><th>OpenStreetMap</th><td>OpenStreetMap embeds</td></tr>
+    <tr><th>Bing Maps</th><td>Bing Maps embeds and Bing Maps Control API</td></tr>
+    <tr><th>MapKit</th><td>MapKit JS (Apple Maps) API</td></tr>
+    <tr><th>Mapbox</th><td>Mapbox GL JS API and Mapbox Studio embeds</td></tr>
+    <tr><th>Leaflet.js</th><td>Leaflet.js API</td></tr>
+    <tr><th>OpenLayers</th><td>OpenLayers API</td></tr>
+    <tr><th>TomTom</th><td>TomTom Maps SDK for Web</td></tr>
+    <tr><th>D3</th><td>D3 Geographies APIs</td></tr>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th>capability</th>
+        <th>MapML specification</th>
+        <th>Web-Map custom component</th>
+        <th>Bing Maps</th>
+        <th>D3</th>
+        <th>Google Maps</th>
+        <th>Leaflet.js</th>
+        <th>Mapbox</th>
+        <th>MapKit</th>
+        <th>OpenLayers</th>
+        <th>OpenStreetMap</th>
+        <th>TomTom</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="ucr-category ucr-group" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#map-viewers">Map Viewer Widget Capabilities <span class="index">(5)</span></a></th>
+      </tr>
+      <tr>
+        <th class="ucr-category" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#map-viewers-capabilities-rendering">Rendering base layers <span class="index">(5.1)</span></a></th>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-declarative-map">Embed an interactive map viewer, using HTML markup <span class="index">(5.1.1)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-default-map">Generate a default map for a given area <span class="index">(5.1.2)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-single-custom-image">Display an image file as a map layer <span class="index">(5.1.3)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-custom-map-tiles">Display a map using tile data from an author-specified web map service <span class="index">(5.1.4)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-no-js">Display a basic map without JavaScript <span class="index">(5.1.5)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-preferred-language">Display map content in a users preferred language <span class="index">(5.1.6)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="ucr-category" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#map-viewers-capabilities-vectors">Vector features and overlays <span class="index">(5.2)</span></a></th>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-marker-points">Show pinpoint locations or custom markers on the map <span class="index">(5.2.1)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-vector-features">Draw polygons or polylines as stylable, interactive vector graphics <span class="index">(separate from the image tiles) (5.2.2)</span></a>
+        </th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-hyperlinks">Support hyperlinks from markers or vector features <span class="index">(5.2.3)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-attribution">Display map data attribution and links <span class="index">(5.2.4)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="ucr-category" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#map-viewers-capabilities-locations">Interpreting locations &amp; map positions <span class="index">(5.3)</span></a></th>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-location-latlong">Select map view from latitude and longitude point <span class="index">(5.3.1)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-location-address">Select map view from street address or place name <span class="index">(5.3.2)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-tile-coordinate-systems">Display map tiles defined in various common coordinate systems <span class="index">(5.3.3)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-reproject-maps">Reproject map tile data into a new projection or globe view <span class="index">(5.3.4)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-export-location">Save the location or export to other application <span class="index">(5.3.5)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="ucr-category" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#map-viewers-capabilities-user-navigation">User navigation <span class="index">(pan &amp; zoom) (5.4)</span></a></th>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-zoom">Zoom the map independently from the rest of the page <span class="index">(5.4.1)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-pan">Pan the map display
+            <span class="index">(5.4.2)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-lazy-load">Load additional map tiles when they pan into view <span class="index">(5.4.3)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-wrap-pan">Wrap/duplicate data tiles when panning around the globe <span class="index">(5.4.4)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-scale-adjust">Maintain reasonable scale of labels and lines when zooming <span class="index">(5.4.5)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-zoom-swap">Dynamically load different resolution map tile on zoom <span class="index">(5.4.6)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-zoom-swap-vectors">Hide or show <span class="index">(and maybe dynamically load) vector features and labels on zoom (5.4.7)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="ucr-category" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#map-viewers-capabilities-custom-styling">Custom styling <span class="index">(5.5)</span></a></th>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-styled-features">Apply custom styling to map markers and vector features <span class="index">(5.5.1)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-styled-controls">Apply custom styling to map controls <span class="index">(5.5.2)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-custom-controls">Toggle whether default controls are displayed <span class="index">(5.5.3)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="ucr-category ucr-group" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#client-apis">Client-side Mapping API Capabilities <span class="index">(6)</span></a></th>
+      </tr>
+      <tr>
+        <th class="ucr-category" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#client-apis-creation">Creating maps and map components <span class="index">(6.1)</span></a></th>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-create-initialise-and-display-a-map">Create,
+            initialise, and display a map <span class="index">(6.1.1)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-add-marker-or-multiple-markers-map">Add a marker or multiple markers to a map <span class="index">(6.1.2)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-implement-a-custom-control">Implement a custom control <span class="index">(6.1.3)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-add-layer-map">Add a layer to a map <span class="index">(6.1.4)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-define-data-source-tile-layer">Define a data source for a tile layer <span class="index">(6.1.5)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-create-an-overlay-defined-by-vector-data">Create an overlay defined by vector data <span class="index">(6.1.6)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-create-an-overlay-defined-by-heatmap-data">Create an overlay defined by heatmap data <span class="index">(6.1.7)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-control-layers-map">Control which layers are included in a map <span class="index">(6.1.8)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-specify-style-map">Specify the style of a map <span class="index">(6.1.9)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-determine-current-style-map">Determine the current style of a map <span class="index">(6.1.10)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="ucr-category" colspan="999"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#client-apis-map-viewport">Controlling the displayed map view and responding to user actions <span class="index">(6.2)</span></a></th>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-get-bounds-map">Get the bounds of a map <span class="index">(6.2.1)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-pan-zoom-or-re-centre-map">Pan,
+            zoom, or re-centre a map <span class="index">(6.2.2)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-map-events">Subscribe to notifications of map events <span class="index">(6.2.3)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-change-bearing-map">Change the bearing of a map <span class="index">(6.2.4)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-move-the-map-to-display-a-given-location">Move the map to display a given location <span class="index">(6.2.5)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-pan-and-zoom-to-bounding-box">Pan and zoom a map so as to completely show the area covered by a given bounding box <span class="index">(6.2.6)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-animate-the-re-centering-of-the-map-view">Animate the re-centering of the map view <span class="index">(6.2.7)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-animate-the-zooming-of-the-map">Animate the zooming of the map <span class="index">(6.2.8)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-animate-the-re-centering-of-the-map">Animate the re-centering of the map <span class="index">(6.2.9)</span></a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
