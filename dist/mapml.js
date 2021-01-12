@@ -18,7 +18,7 @@
         this.layerBounds.extend(this._bounds[key].max);
       }
       L.GridLayer.prototype.onAdd.call(this,this._map);
-      this._map.fire('moveend',true);
+      this._handleMoveEnd();
     },
     
     getEvents: function(){
@@ -675,7 +675,7 @@
       onAdd : function(){
         this._map._addZoomLimit(this);
         L.TileLayer.prototype.onAdd.call(this,this._map);
-        this._map.fire('moveend', true);
+        this._handleMoveEnd();
       },
 
       getEvents: function(){
@@ -1677,7 +1677,7 @@
         _pullFeatureFeed(this._getfeaturesUrl(), 10)
           .then(function() { 
                 map.addLayer(features);
-                map.fire('moveend');
+                map.fire('moveend');  // TODO: replace with moveend handler for layer and not entire map
           })
           .catch(function (error) { console.log(error);});
       },
@@ -1859,7 +1859,7 @@
       onAdd: function () {
           this._map._addZoomLimit(this);  //used to set the zoom limit of the map
           this.setZIndex(this.options.zIndex);
-          this._map.fire('moveend',true);
+          this._onMoveEnd();
       },
       redraw: function() {
           this._onMoveEnd();
