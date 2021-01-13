@@ -5,6 +5,26 @@
   <meta charset="UTF-8">
   <title>MapML UCR Fullfillment Matrix</title>
   <style>
+
+    dl {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    dt {
+      flex-basis: 15%;
+      font-weight: bold;
+    }
+
+      dt::after {
+        content: ":";
+      }
+
+    dd {
+      flex-basis: 70%;
+      flex-grow: 1;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -52,6 +72,20 @@
       color: gray;
       /* padding: 2px; */
     }
+
+
+    td.pass {
+      background-color: hsl(87, 60%, 60%);
+    }
+
+    td.partial {
+      background-color: hsl(60, 100%, 87%);
+    }
+
+    td.fail {
+      background-color: hsl(323, 68%, 83%);
+    }
+
   </style>
 </head>
 
@@ -212,19 +246,44 @@
 
   </table> -->
 
-  <table>
-    <tr><th>Google Maps</th><td>Google Maps embeds and Google Maps Platform API</td></tr>
-    <tr><th>OpenStreetMap</th><td>OpenStreetMap embeds</td></tr>
-    <tr><th>Bing Maps</th><td>Bing Maps embeds and Bing Maps Control API</td></tr>
-    <tr><th>MapKit</th><td>MapKit JS (Apple Maps) API</td></tr>
-    <tr><th>Mapbox</th><td>Mapbox GL JS API and Mapbox Studio embeds</td></tr>
-    <tr><th>Leaflet.js</th><td>Leaflet.js API</td></tr>
-    <tr><th>OpenLayers</th><td>OpenLayers API</td></tr>
-    <tr><th>TomTom</th><td>TomTom Maps SDK for Web</td></tr>
-    <tr><th>D3</th><td>D3 Geographies APIs</td></tr>
-  </table>
+  <h2 id="table-legend">Table legend</h2>
 
-  <table>
+  <dl>
+    <dt>MapML specification</dt>
+    <dd>Draft specification for the MapML Element</dd>
+
+    <dt>Web-Map custom component</dt>
+    <dd>Reference polyfill implementation of the MapML specification</dd>
+
+    <dt>OpenStreetMap</dt>
+    <dd>OpenStreetMap embeds</dd>
+
+    <dt>Bing Maps</dt>
+    <dd>Bing Maps embeds and Bing Maps Control API</dd>
+
+    <dt>MapKit</dt>
+    <dd>MapKit JS (Apple Maps) API</dd>
+
+    <dt>Mapbox</dt>
+    <dd>Mapbox GL JS API and Mapbox Studio embeds</dd>
+
+    <dt>Leaflet.js</dt>
+    <dd>Leaflet.js API</dd>
+
+    <dt>OpenLayers</dt>
+    <dd>OpenLayers API</dd>
+
+    <dt>TomTom</dt>
+    <dd>TomTom Maps SDK for Web</dd>
+
+    <dt>D3</dt>
+    <dd>D3 Geographies APIs</dd>
+
+  </dl>
+
+  <h2 id="approved-capabilities">Approved capabilities</h2>
+
+  <table id="approved-capabilities-table">    
     <thead>
       <tr>
         <th>capability</th>
@@ -306,9 +365,9 @@
       </tr>
       <tr>
         <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-no-js">Display a basic map without JavaScript <span class="index">(5.1.5)</span></a></th>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td class="pass">pass</td>
+        <td class="partial">partial <sup><a id="note-1-ref" href="#note-1">1</a></sup></td>
+        <td class="fail">fail</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -320,9 +379,9 @@
       </tr>
       <tr>
         <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-preferred-language">Display map content in a users preferred language <span class="index">(5.1.6)</span></a></th>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td class="pass"><a href="#">pass</a></td>
+        <td class="partial"><a href="#">partial</a></td>
+        <td class="fail"><a href="#">fail</a></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -891,6 +950,57 @@
       </tr>
     </tbody>
   </table>
+
+  <h2 id="approved-capabilities">Proposed capabilities</h2>
+
+  <table id="proposed-capabilities-table">
+    <thead>
+      <tr>
+        <th>proposed capability</th>
+        <th>category</th>
+        <th>MapML specification</th>
+        <th>Web-Map custom component</th>
+        <th>Bing Maps</th>
+        <th>D3</th>
+        <th>Google Maps</th>
+        <th>Leaflet.js</th>
+        <th>Mapbox</th>
+        <th>MapKit</th>
+        <th>OpenLayers</th>
+        <th>OpenStreetMap</th>
+        <th>TomTom</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-default-map">Name and link to Github issue</a></th>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section>
+    <h2 id="notes">Notes</h2>
+
+    <section id="note-1">
+      <h3 id="notes">Note 1:</h3>
+      <p>No additional JavaScript is require beside the script used in the polyfill</p>
+      <p><a href="#note-1-ref">back</a></p>
+    </section>
+
+  </section>
+  
 
 </body>
 
