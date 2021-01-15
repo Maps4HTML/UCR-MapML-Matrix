@@ -264,6 +264,7 @@
 
   const FALLBACK_PROJECTION = "OSMTILE";
   const FALLBACK_CS = "TILEMATRIX";
+  const BLANK_TT_TREF = "mapmltemplatedtileplaceholder";
 
   var MapMLFeatures = L.FeatureGroup.extend({
     /*
@@ -705,22 +706,38 @@
         this._parentOnMoveEnd();
       },
       createTile: function (coords) {
-        let tileSize = this._map.options.crs.options.crs.tile.bounds.max.x;
+        let tileGroup = document.createElement("DIV"),
+            tileSize = this._map.options.crs.options.crs.tile.bounds.max.x;
+        L.DomUtil.addClass(tileGroup, "mapml-tile-group");
+        L.DomUtil.addClass(tileGroup, "leaflet-tile");
+        
+        tileGroup.setAttribute("width", `${tileSize}`);
+        tileGroup.setAttribute("height", `${tileSize}`);
+
+        this._template.linkEl.dispatchEvent(new CustomEvent('tileloadstart', {
+          detail:{
+            x:coords.x,
+            y:coords.y,
+            zoom:coords.z,
+            appendTile: (elem)=>{tileGroup.appendChild(elem);},
+          },
+        }));
+
         if (this._template.type.startsWith('image/')) {
-          return L.TileLayer.prototype.createTile.call(this, coords, function(){});
-        } else {
+          tileGroup.appendChild(L.TileLayer.prototype.createTile.call(this, coords, function(){}));
+        } else if(!this._url.includes(BLANK_TT_TREF)) {
           // tiles of type="text/mapml" will have to fetch content while creating
           // the tile here, unless there can be a callback associated to the element
           // that will render the content in the alread-placed tile
           // var tile = L.DomUtil.create('canvas', 'leaflet-tile');
           var tile = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          this._fetchTile(coords, tile);
           tile.setAttribute("width", `${tileSize}`);
           tile.setAttribute("height", `${tileSize}`);
-  //        tile.style.outline="1px solid red";
           L.DomUtil.addClass(tile, "leaflet-tile");
-          this._fetchTile(coords, tile);
-          return tile;
+          tileGroup.appendChild(tile);
         }
+        return tileGroup;
       },
       _mapmlTileReady: function(tile) {
           L.DomUtil.addClass(tile,'leaflet-tile-loaded');
@@ -2754,8 +2771,16 @@
                         zoomInput = serverExtent.querySelector('input[type="zoom" i]'),
                         includesZoom = false;
                     for (var i=0;i< tlist.length;i++) {
-                      var t = tlist[i],
-                          template = t.getAttribute('tref'), v,
+                      var t = tlist[i], template = t.getAttribute('tref'); 
+                      if(!template){
+                        template = BLANK_TT_TREF;
+                        let blankInputs = mapml.querySelectorAll('input');
+                        for (let i of blankInputs){
+                          template += `{${i.getAttribute("name")}}`;
+                        }
+                      }
+                      
+                      var v,
                           title = t.hasAttribute('title') ? t.getAttribute('title') : 'Query this layer',
                           vcount=template.match(varNamesRe),
                           trel = (!t.hasAttribute('rel') || t.getAttribute('rel').toLowerCase() === 'tile') ? 'tile' : t.getAttribute('rel').toLowerCase(),
@@ -2810,7 +2835,7 @@
                           break;
                         }
                       }
-                      if (template && vcount.length === inputs.length) {
+                      if (template && vcount.length === inputs.length || template === BLANK_TT_TREF) {
                         if (trel === 'query') {
                           layer.queryable = true;
                         }
@@ -2820,6 +2845,7 @@
                         // template has a matching input for every variable reference {varref}
                         layer._templateVars.push({
                           template:decodeURI(new URL(template, base)), 
+                          linkEl: t,
                           title:title, 
                           rel: trel, 
                           type: ttype, 
