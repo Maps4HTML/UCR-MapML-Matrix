@@ -1,0 +1,196 @@
+{ 
+  "capability groups": {
+    "Map Viewer Widget": {
+      "title": "Map Viewer Widget Capabilities",
+      "section_id": "5",
+      "capabilities": [
+        {
+          "Embed an interactive map viewer, using HTML markup": {
+            "parent_topic": "Rendering base layers",
+            "parent_topic_id": "5.1",
+            "index_id": "5.1.1",
+            "use cases": [
+              {
+                "title": "Display an interactive map within a web page",
+                "ucr_id": "3.1.1",
+                "url": "https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-create-map"
+              }
+            ]
+            "implementations": [
+              { "MapML specification": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Web-Map custom component": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Google Maps": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "OpenStreetMap": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Bing Maps": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "MapKit": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Mapbox": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Leaflet.js": 
+                { 
+                  "status": "none", 
+                  "notes": "must be combined with a separate map provider",
+                  "test_url": "" 
+                } 
+              },
+              { "OpenLayers": 
+                { 
+                  "status": "none", 
+                  "notes": "must be combined with a separate map provider",
+                  "test_url": ""
+                } 
+              },
+              { "TomTom": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "D3": 
+                { 
+                  "status": "full", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+            ]
+          }
+        },
+        {
+          "title": {
+            "parent_topic": "Rendering base layers",
+            "parent_topic_id": "5.1",
+            "index_id": "5.1.",
+            "use cases": [
+              {
+                "title": "",
+                "ucr_id": "",
+                "url": ""
+              }
+            ]
+            "implementations": [
+              { "MapML specification": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Web-Map custom component": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Google Maps": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "OpenStreetMap": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Bing Maps": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "MapKit": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Mapbox": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "Leaflet.js": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "OpenLayers": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "TomTom": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+              { "D3": 
+                { 
+                  "status": "", 
+                  "notes": "",
+                  "test_url": "" 
+                } 
+              },
+            ]
+          }
+        },
+      ]
+    }
+  }
+}
