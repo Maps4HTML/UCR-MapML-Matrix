@@ -1,5 +1,93 @@
-{ 
-  "capability groups": {
+{
+  "implementations": [
+    {
+      "mapml-spec": {
+        "title": "MapML specification",
+        "desc": "Draft specification for the MapML Element",
+        "type": "specification"
+      }
+    },
+    {
+      "web-map-polyfill": {
+        "title": "Web-Map custom component",
+        "desc": "Reference polyfill implementation of the MapML specification",
+        "type": "embed"
+      }
+    },
+    {
+      "apple-mapkit-js-api": {
+        "title": "MapKit",
+        "desc": "MapKit JS (Apple Maps) API",
+        "type": "api"
+      }
+    },
+    {
+      "bing-maps-api": {
+        "title": "Bing embed",
+        "desc": "Bing Maps embeds",
+        "type": "api"
+      }
+    },
+    {
+      "bing-maps-embed": {
+        "title": "Bing API",
+        "desc": "Bing Maps Control API",
+        "type": "embed"
+      }
+    },
+    {
+      "d3-geo-api": {
+        "title": "D3",
+        "desc": "D3.js D3 Geographies API (d3-geo) module",
+        "type": "api"
+      }
+    },
+    { "google-maps-api": { "title": "", "desc": "", "type": "api" } },
+    { "google-maps-embed": { "title": "", "desc": "", "type": "embed" } },
+    {
+      "leaflet-api": {
+        "title": "Leaflet",
+        "desc": "Leaflet.js API",
+        "type": "api"
+      }
+    },
+    {
+      "mapbox-gl-api": {
+        "title": "Mapbox API",
+        "desc": "Mapbox GL JS API",
+        "type": "embed"
+      }
+    },
+    {
+      "mapbox-embed": {
+        "title": "Mapbox embed",
+        "desc": "Mapbox Studio embeds",
+        "type": "embed"
+      }
+    },
+    {
+      "open-layers-api": {
+        "title": "OpenLayers",
+        "desc": "OpenLayers API",
+        "type": "api"
+      }
+    },
+    {
+      "openstreetmap-embed": {
+        "title": "OpenStreetMap",
+        "desc": "OpenStreetMap embeds",
+        "type": "embed"
+      }
+    },
+    {
+      "tomtom-sdk": {
+        "title": "TomTom",
+        "desc": "TomTom Maps SDK for Web",
+        "type": "sdk"
+      }
+    }
+  ],
+  "capability-groups": {
     "map-viewers": {
       "title": "Map Viewer Widget Capabilities",
       "index": "5",
@@ -8,11 +96,7 @@
     "map-viewers-capabilities-rendering": {
       "title": "Rendering base layers",
       "index": "5.1",
-      "parent_id": "map-viewers",
-      "use cases": [
-      ],
-      "implementations": [
-      ]
+      "parent_id": "map-viewers"
     },
     "map-viewers-capabilities-vectors": {
       "title": "Vector features and overlays",
@@ -55,181 +139,211 @@
       "title": "Embed an interactive map viewer, using HTML markup",
       "index": "5.1.1",
       "parent_id": "map-viewers-capabilities-rendering",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "none",
+            "notes": "no support: must be combined with a separate map provider.",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "none",
+            "notes": "no support: must be combined with a separate map provider.",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
-    },
+    },      
     "capability-default-map": {
       "title": "Generate a default map for a given area",
       "index": "5.1.2",
       "parent_id": "map-viewers-capabilities-rendering",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "none",
+            "notes": "must be combined with a separate map provider.",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "none",
+            "notes": "must be combined with a separate map provider.",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -237,90 +351,105 @@
       "title": "Display an image file as a map layer",
       "index": "5.1.3",
       "parent_id": "map-viewers-capabilities-rendering",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-embed": {
+            "support": "none",
+            "notes": "most embeds do not support this. Adding a custom image layer requires more configuration than supported by these tools.",
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-embed": {
+            "support": "none",
+            "notes": "most embeds do not support this. Adding a custom image layer requires more configuration than supported by these tools.",
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "none",
+            "notes": "most embeds do not support this. Adding a custom image layer requires more configuration than supported by these tools.",
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "most embeds do not support this. Adding a custom image layer requires more configuration than supported by these tools.",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -328,90 +457,105 @@
       "title": "Display a map using tile data from an author-specified web map service",
       "index": "5.1.4",
       "parent_id": "map-viewers-capabilities-rendering",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "none",
+            "notes": "Although TomTom supports WMS services (where the server can generate a single image file for custom map coordinates), it does not support WMTS or other custom tile sources.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -419,90 +563,105 @@
       "title": "Display a basic map without JavaScript",
       "index": "5.1.5",
       "parent_id": "map-viewers-capabilities-rendering",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "apple-mapkit-js-api": {
+            "support": "limited",
+            "notes": "these tools offer options to serve a static image without JavaScript, typically by joining together tiles when the map author passes in a center and zoom level parameter into a specific URL format. However, this is not the default fallback behavior for the embeds when JavaScript is turned off; adding a fallback image must be implemented as a custom feature.",
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-api": {
+            "support": "limited",
+            "notes": "these tools offer options to serve a static image without JavaScript, typically by joining together tiles when the map author passes in a center and zoom level parameter into a specific URL format. However, this is not the default fallback behavior for the embeds when JavaScript is turned off; adding a fallback image must be implemented as a custom feature.",
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-embed": {
+            "support": "limited",
+            "notes": "these tools offer options to serve a static image without JavaScript, typically by joining together tiles when the map author passes in a center and zoom level parameter into a specific URL format. However, this is not the default fallback behavior for the embeds when JavaScript is turned off; adding a fallback image must be implemented as a custom feature.",
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-api": {
+            "support": "limited",
+            "notes": "these tools offer options to serve a static image without JavaScript, typically by joining together tiles when the map author passes in a center and zoom level parameter into a specific URL format. However, this is not the default fallback behavior for the embeds when JavaScript is turned off; adding a fallback image must be implemented as a custom feature.",
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-embed": {
+            "support": "limited",
+            "notes": "these tools offer options to serve a static image without JavaScript, typically by joining together tiles when the map author passes in a center and zoom level parameter into a specific URL format. However, this is not the default fallback behavior for the embeds when JavaScript is turned off; adding a fallback image must be implemented as a custom feature.",
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "limited",
+            "notes": "these tools offer options to serve a static image without JavaScript, typically by joining together tiles when the map author passes in a center and zoom level parameter into a specific URL format. However, this is not the default fallback behavior for the embeds when JavaScript is turned off; adding a fallback image must be implemented as a custom feature.",
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "limited",
+            "notes": "these tools offer options to serve a static image without JavaScript, typically by joining together tiles when the map author passes in a center and zoom level parameter into a specific URL format. However, this is not the default fallback behavior for the embeds when JavaScript is turned off; adding a fallback image must be implemented as a custom feature.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -510,90 +669,105 @@
       "title": "Display map content in a users preferred language",
       "index": "5.1.6",
       "parent_id": "map-viewers-capabilities-rendering",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -601,90 +775,105 @@
       "title": "Show pinpoint locations or custom markers on the map",
       "index": "5.2.1",
       "parent_id": "map-viewers-capabilities-vectors",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-embed": {
+            "support": "none",
+            "notes": "allows for display of a general area but no map markers",
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "limited",
+            "notes": "only allows you to show a single marker on embedded maps",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -692,90 +881,105 @@
       "title": "Draw polygons or polylines as stylable, interactive vector graphics (separate from the image tiles)",
       "index": "5.2.2",
       "parent_id": "map-viewers-capabilities-vectors",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -783,90 +987,105 @@
       "title": "Support hyperlinks from markers or vector features",
       "index": "5.2.3",
       "parent_id": "map-viewers-capabilities-vectors",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -874,90 +1093,105 @@
       "title": "Display map data attribution and links",
       "index": "5.2.4",
       "parent_id": "map-viewers-capabilities-vectors",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "limited",
+            "notes": "attribution is automatically generated, but it is not keyboard accessible.",
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "limited",
+            "notes": "attribution is automatically generated, but it is not keyboard accessible.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -965,90 +1199,105 @@
       "title": "Select map view from latitude and longitude point",
       "index": "5.3.1",
       "parent_id": "map-viewers-capabilities-locations",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-embed": {
+            "support": "partial",
+            "notes": "does not support markers for a single location, but it is possible to display a map centered around a particular latitude and longitude point with no marker.",
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "limited",
+            "notes": "A location defined with longitude and latitude <a href='https://openlayers.org/en/latest/doc/faq.html#why-is-my-map-centered-on-the-gulf-of-guinea-or-africa-the-ocean-null-island-'>must be converted to the map tile coordinate system</a>, but the API provides the conversion function.",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1056,90 +1305,105 @@
       "title": "Select map view from street address or place name",
       "index": "5.3.2",
       "parent_id": "map-viewers-capabilities-locations",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-embed": {
+            "support": "partial",
+            "notes": "does not support markers for a single location, but it is possible to display a map centered around a particular street address with no marker.",
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "limited",
+            "notes": "the default libraries do not support this but there are a wide variety of geocoding plugins that support this capability.",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "limited",
+            "notes": "the default libraries do not support this but there are a wide variety of geocoding plugins that support this capability.",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1147,90 +1411,105 @@
       "title": "Display map tiles defined in various common coordinate systems",
       "index": "5.3.3",
       "parent_id": "map-viewers-capabilities-locations",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "apple-mapkit-js-api": {
+            "support": "none",
+            "notes": "these embeds only support the Web Mercator projection.",
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-api": {
+            "support": "none",
+            "notes": "these embeds only support the Web Mercator projection.",
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-embed": {
+            "support": "none",
+            "notes": "these embeds only support the Web Mercator projection.",
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "limited",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-embed": {
+            "support": "none",
+            "notes": "these embeds only support the Web Mercator projection.",
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "limited",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "none",
+            "notes": "these embeds only support the Web Mercator projection.",
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "limited",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "these embeds only support the Web Mercator projection.",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "none",
+            "notes": "these embeds only support the Web Mercator projection.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1238,90 +1517,105 @@
       "title": "Reproject map tile data into a new projection or globe view",
       "index": "5.3.4",
       "parent_id": "map-viewers-capabilities-locations",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1329,90 +1623,105 @@
       "title": "Save the location or export to other application",
       "index": "5.3.5",
       "parent_id": "map-viewers-capabilities-locations",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-embed": {
+            "support": "limited",
+            "notes": "a user is able to generate a link to the map that can be shared via a variety of methods, but there is no way to easily send this information to another application.",
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1420,90 +1729,105 @@
       "title": "Zoom the map independently from the rest of the page",
       "index": "5.4.1",
       "parent_id": "map-viewers-capabilities-user-navigation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "limited",
+            "notes": "all of the above is supported, but the buttons do not have any focus styles.",
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1511,90 +1835,105 @@
       "title": "Pan the map display",
       "index": "5.4.2",
       "parent_id": "map-viewers-capabilities-user-navigation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "apple-mapkit-js-api": {
+            "support": "partial",
+            "notes": "Mouse and touch panning only. Keyboard panning is possible on the google maps web application. Keyboard panning is activated when a specific region of the map is focused.",
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-api": {
+            "support": "partial",
+            "notes": "Mouse and touch panning only. Keyboard panning is possible on the google maps web application. Keyboard panning is activated when a specific region of the map is focused.",
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-embed": {
+            "support": "partial",
+            "notes": "Mouse and touch panning only. Keyboard panning is possible on the google maps web application. Keyboard panning is activated when a specific region of the map is focused.",
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "partial",
+            "notes": "Mouse, touch, and keyboard panning are supported; no keyboard focus indication.",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "partial",
+            "notes": "Mouse, touch, and keyboard panning are supported; no keyboard focus indication.",
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "partial",
+            "notes": "Mouse, touch, and keyboard panning are supported; no keyboard focus indication.",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "limited",
+            "notes": "Mouse, touch, and keyboard panning are supported; no keyboard focus indication.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1602,90 +1941,105 @@
       "title": "Load additional map tiles when they pan into view",
       "index": "5.4.3",
       "parent_id": "map-viewers-capabilities-user-navigation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1693,90 +2047,105 @@
       "title": "Wrap/duplicate data tiles when panning around the globe",
       "index": "5.4.4",
       "parent_id": "map-viewers-capabilities-user-navigation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }], 
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1784,90 +2153,105 @@
       "title": "Maintain reasonable scale of labels and lines when zooming",
       "index": "5.4.5",
       "parent_id": "map-viewers-capabilities-user-navigation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1875,90 +2259,105 @@
       "title": "Dynamically load different resolution map tile on zoom",
       "index": "5.4.6",
       "parent_id": "map-viewers-capabilities-user-navigation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -1966,90 +2365,105 @@
       "title": "Hide or show (and maybe dynamically load) vector features and labels on zoom",
       "index": "5.4.7",
       "parent_id": "map-viewers-capabilities-user-navigation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2057,90 +2471,105 @@
       "title": "Apply custom styling to map markers and vector features",
       "index": "5.5.1",
       "parent_id": "map-viewers-capabilities-custom-styling",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2148,90 +2577,105 @@
       "title": "Apply custom styling to map controls",
       "index": "5.5.2",
       "parent_id": "map-viewers-capabilities-custom-styling",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "limited",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2239,90 +2683,105 @@
       "title": "Toggle whether default controls are displayed",
       "index": "5.5.3",
       "parent_id": "map-viewers-capabilities-custom-styling",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "partial",
+            "notes": "you can toggle controls for the HTML slippy map, but not maps created in the more robust Mapbox Studio editor.",
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "none",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2330,90 +2789,105 @@
       "title": "Create, initialise, and display a map",
       "index": "6.1.1",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
+            "notes": "Allows straightforward creation of a map with configuration options.",
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-api": {
+            "support": "full",
+            "notes": "Allows straightforward creation of a map with configuration options.",
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "d3-geo-api": {
+            "support": "limited",
+            "notes": "<p>The <var>d3-geo</var> module supports vector data in the form of either GeoJSON or TopoJSON. It renders this data to either an SVG or Canvas element. It requires the developer to implement support for interaction using other d3 modules, such as <var>d3-zoom</var> and <var>d3-transition</var>.</p> <p>By utilising the <var>d3-tile</var> module, tiled raster data can be combined with vector map data.</p>",
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-api": {
+            "support": "full",
+            "notes": "Allows straightforward creation of a map with configuration options.",
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "full",
+            "notes": "<p>Leaflet, OpenLayers, and MapBox require explicit construction of objects defining the map layers and viewport, with sensible defaults for creation of, for example, a map showing OpenStreetMap tiles in a standard <cite><a href='http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf'>World Geodetic System 1984</a></cite> projection. This provides added flexibility, at the expense of increasing the complexity of code that uses these libraries.</p>",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
+            "notes": "<p>Leaflet, OpenLayers, and MapBox require explicit construction of objects defining the map layers and viewport, with sensible defaults for creation of, for example, a map showing OpenStreetMap tiles in a standard <cite><a href='http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf'>World Geodetic System 1984</a></cite> projection. This provides added flexibility, at the expense of increasing the complexity of code that uses these libraries.</p>",
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "<p>Leaflet, OpenLayers, and MapBox require explicit construction of objects defining the map layers and viewport, with sensible defaults for creation of, for example, a map showing OpenStreetMap tiles in a standard <cite><a href='http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf'>World Geodetic System 1984</a></cite> projection. This provides added flexibility, at the expense of increasing the complexity of code that uses these libraries.</p>",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "Allows straightforward creation of a map with configuration options.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2421,90 +2895,105 @@
       "title": "Add a marker or multiple markers to a map",
       "index": "6.1.2",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "d3-geo-api": {
+            "support": "partial",
+            "notes": "By default, d3-geo will render point features as circles. These can be styled using whatever techniques are being used to style the map content, typically either using presentational SVG attributes, or CSS. In practice, adding markers in a manner similar to that offered by other mapping APIs might best be achieved by dynamically creating a GeoJSON feature containing the point features in a FeatureCollection and adding this as an additional layer on the map.",
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "limited",
+            "notes": "Rather than providing a straightforward API, OpenLayers requires a number of steps to be followed: providing icon imagery (as there is no default imagery provided), creating icon features, creating a map layer to hold those features, and finally adding the layer to a map. This is noticeably more complex than the APIs provided by a number of other implementations.",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2512,90 +3001,105 @@
       "title": "Implement a custom control",
       "index": "6.1.3",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-api": {
+            "support": "partial",
+            "notes": "Bing Maps expects controls to be implemented as a type of overlay. It provides no particular support for controls beyond that, not even for positioning them within the map UI, which is left to the developer to achieve using CSS positioning.",
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
+            "notes": "Although d3 supports a variety of user interactions, the concept of a user interface presenting a collection of controls to the user is not part of the library.",
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-api": {
+            "support": "limited",
+            "notes": "While Google Maps supports the adding and removing of controls and the specifying of their placement within a number of predefined areas within the map's UI, there is no specific interface to which they are expected to conform.",
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "full",
+            "notes": "Leaflet, TomTom (which uses Leaflet), and OpenLayers provide base classes which controls extend, along with map methods for adding and removing controls. OpenLayers also exposes its control collection directly.",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
+            "notes": "MapBoxGL specifies an interface to which controls are expected to conform. The map API provides methods for adding and removing controls to and from the map UI.",
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "Leaflet, TomTom (which uses Leaflet), and OpenLayers provide base classes which controls extend, along with map methods for adding and removing controls. OpenLayers also exposes its control collection directly.",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "Leaflet, TomTom (which uses Leaflet), and OpenLayers provide base classes which controls extend, along with map methods for adding and removing controls. OpenLayers also exposes its control collection directly.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2603,90 +3107,105 @@
       "title": "Add a layer to a map",
       "index": "6.1.4",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2694,90 +3213,105 @@
       "title": "Define a data source for a tile layer",
       "index": "6.1.5",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2785,90 +3319,105 @@
       "title": "Create an overlay defined by vector data",
       "index": "6.1.6",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2876,90 +3425,105 @@
       "title": "Create an overlay defined by heatmap data",
       "index": "6.1.7",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
+            "notes": "MapKit JS does not support a heatmap overlay at present, and no third-party plugins adding support are known of.",
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-api": {
+            "support": "partial",
+            "notes": "Bing Maps has native support for heatmaps via a separate module that must be explicitly loaded in JavaScript, rather than being specified declaratively in HTML.",
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "d3-geo-api": {
+            "support": "partial",
+            "notes": "Leaflet (and by extension TomTom) and d3 have third-party plugins available which add support.",
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "partial",
+            "notes": "Leaflet (and by extension TomTom) and d3 have third-party plugins available which add support.",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "partial",
+            "notes": "Leaflet (and by extension TomTom) and d3 have third-party plugins available which add support.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -2967,90 +3531,105 @@
       "title": "Control which layers are included in a map",
       "index": "6.1.8",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3058,90 +3637,105 @@
       "title": "Specify the style of a map",
       "index": "6.1.9",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "not applicable",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3149,90 +3743,105 @@
       "title": "Determine the current style of a map",
       "index": "6.1.10",
       "parent_id": "client-apis-creation",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "not applicable",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3240,90 +3849,105 @@
       "title": "Get the bounds of a map",
       "index": "6.2.1",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3331,90 +3955,105 @@
       "title": "Pan, zoom, or re-centre a map",
       "index": "6.2.2",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3422,90 +4061,105 @@
       "title": "Subscribe to notifications of map events",
       "index": "6.2.3",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "apple-mapkit-js-api": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "bing-maps-api": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "d3-geo-api": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "google-maps-api": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "leaflet-api": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
-            "notes": "",
-            "test_url": "" 
-          } 
+        {
+          "mapbox-gl-api": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "limited",
+            "notes": "Although all existing implementations support an events system capable of meeting the needs of developers, inconsistencies in terminology, semantic richness, and the interfaces provided for adding and removing event listeners mean that it is unclear whether any one of the existing APIs would be a suitable model for the various capabilities available across the entire range of them.",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3513,90 +4167,105 @@
       "title": "Change the bearing of a map",
       "index": "6.2.4",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "none",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "full",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "full",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3604,90 +4273,105 @@
       "title": "Move the map to display a given location",
       "index": "6.2.5",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "not applicable",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3695,90 +4379,105 @@
       "title": "Pan and zoom a map so as to completely show the area covered by a given bounding box",
       "index": "6.2.6",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "not applicable",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3786,90 +4485,105 @@
       "title": "Animate the re-centering of the map view",
       "index": "6.2.7",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "not applicable",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3877,90 +4591,105 @@
       "title": "Animate the zooming of the map",
       "index": "6.2.8",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "not applicable",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     },
@@ -3968,90 +4697,105 @@
       "title": "Animate the re-centering of the map",
       "index": "6.2.9",
       "parent_id": "client-apis-map-viewport",
-      "use cases": [
-        {
-          "title": "",
-          "ucr_id": "",
-          "url": ""
-        }
-      ],
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
-        { "MapML specification": 
-          { 
-            "status": "", 
+        {
+          "mapml-spec": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Web-Map custom component": 
-          { 
-            "status": "", 
+        {
+          "web-map-polyfill": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Google Maps": 
-          { 
-            "status": "", 
+        {
+          "apple-mapkit-js-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenStreetMap": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Bing Maps": 
-          { 
-            "status": "", 
+        {
+          "bing-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "MapKit": 
-          { 
-            "status": "", 
+        {
+          "d3-geo-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Mapbox": 
-          { 
-            "status": "", 
+        {
+          "google-maps-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "Leaflet.js": 
-          { 
-            "status": "", 
+        {
+          "google-maps-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "OpenLayers": 
-          { 
-            "status": "", 
+        {
+          "leaflet-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "TomTom": 
-          { 
-            "status": "", 
+        {
+          "mapbox-gl-api": {
+            "support": "not applicable",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
         },
-        { "D3": 
-          { 
-            "status": "", 
+        {
+          "mapbox-embed": {
+            "support": "",
             "notes": "",
-            "test_url": "" 
-          } 
+            "example_url": ""
+          }
+        },
+        {
+          "open-layers-api": {
+            "support": "not applicable",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "openstreetmap-embed": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
+        },
+        {
+          "tomtom-sdk": {
+            "support": "",
+            "notes": "",
+            "example_url": ""
+          }
         }
       ]
     }
