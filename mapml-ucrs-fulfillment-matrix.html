@@ -97,6 +97,16 @@
       background-color: hsl(323, 68%, 83%);
     }
 
+    td > ul {
+      list-style-position: inside;
+      padding: 0;
+      margin: 0.25rem;
+      text-align: start;
+    }
+
+    tr:target {
+      outline: 3px black solid;
+    }
   </style>
 
   <script type="module" src="./main.js"></script>
@@ -187,6 +197,12 @@
       </tr>
     </tbody>
   </table>
+
+  <section>
+    <h2 id="use-cases">Use Cases</h2>
+    <section id="use_case_container">
+    </section>
+  </section>
 
   <section>
     <h2 id="notes">Notes</h2>
