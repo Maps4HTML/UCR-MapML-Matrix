@@ -309,8 +309,8 @@
       }
     },
     {
-      "web-map-polyfill": {
-        "title": "Web-Map",
+      "mapml-viewer-polyfill": {
+        "title": "MapML-Viewer",
         "desc": "Reference custom component polyfill implementation of the MapML specification",
         "type": "embed"
       }
@@ -463,7 +463,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "full",
             "notes": "",
             "example_url": ""
@@ -570,7 +570,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -677,7 +677,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -784,7 +784,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -891,7 +891,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -998,7 +998,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1105,7 +1105,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1212,7 +1212,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1319,7 +1319,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1426,7 +1426,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1533,7 +1533,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1640,7 +1640,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1747,7 +1747,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1854,7 +1854,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -1961,7 +1961,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2068,7 +2068,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2175,7 +2175,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2282,7 +2282,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2389,7 +2389,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2496,7 +2496,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2603,7 +2603,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2710,7 +2710,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2817,7 +2817,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -2924,7 +2924,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3031,7 +3031,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3138,7 +3138,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3245,7 +3245,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3352,7 +3352,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3459,7 +3459,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3566,7 +3566,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3673,7 +3673,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3780,7 +3780,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3887,7 +3887,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -3994,7 +3994,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4101,7 +4101,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4208,7 +4208,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4315,7 +4315,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4422,7 +4422,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4529,7 +4529,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4636,7 +4636,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4743,7 +4743,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4850,7 +4850,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -4957,7 +4957,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
@@ -5064,7 +5064,7 @@
           }
         },
         {
-          "web-map-polyfill": {
+          "mapml-viewer-polyfill": {
             "support": "",
             "notes": "",
             "example_url": ""
