@@ -2,15 +2,15 @@
   "implementations": [
     {
       "mapml-spec": {
-        "title": "MapML specification",
+        "title": "MapML spec",
         "desc": "Draft specification for the MapML Element",
         "type": "specification"
       }
     },
     {
       "web-map-polyfill": {
-        "title": "Web-Map custom component",
-        "desc": "Reference polyfill implementation of the MapML specification",
+        "title": "Web-Map",
+        "desc": "Reference custom component polyfill implementation of the MapML specification",
         "type": "embed"
       }
     },
@@ -42,8 +42,20 @@
         "type": "api"
       }
     },
-    { "google-maps-api": { "title": "", "desc": "", "type": "api" } },
-    { "google-maps-embed": { "title": "", "desc": "", "type": "embed" } },
+    {
+      "google-maps-api": {
+        "title": "Google embed",
+        "desc": "Google Maps embeds",
+        "type": "api"
+      }
+    },
+    {
+      "google-maps-embed": {
+        "title": "Google API",
+        "desc": "Google Maps Control API",
+        "type": "embed"
+      }
+    },
     {
       "leaflet-api": {
         "title": "Leaflet",
@@ -104,12 +116,12 @@
       "parent_id": "map-viewers"
     },
     "map-viewers-capabilities-locations": {
-      "title": "Interpreting locations &amp; map positions",
+      "title": "Interpreting locations and map positions",
       "index": "5.3",
       "parent_id": "map-viewers"
     },
     "map-viewers-capabilities-user-navigation": {
-      "title": "User navigation (pan &amp; zoom)",
+      "title": "User navigation (pan and zoom)",
       "index": "5.4",
       "parent_id": "map-viewers"
     },
@@ -139,6 +151,7 @@
       "title": "Embed an interactive map viewer, using HTML markup",
       "index": "5.1.1",
       "parent_id": "map-viewers-capabilities-rendering",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -245,6 +258,7 @@
       "title": "Generate a default map for a given area",
       "index": "5.1.2",
       "parent_id": "map-viewers-capabilities-rendering",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -351,6 +365,7 @@
       "title": "Display an image file as a map layer",
       "index": "5.1.3",
       "parent_id": "map-viewers-capabilities-rendering",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -457,6 +472,7 @@
       "title": "Display a map using tile data from an author-specified web map service",
       "index": "5.1.4",
       "parent_id": "map-viewers-capabilities-rendering",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -563,6 +579,7 @@
       "title": "Display a basic map without JavaScript",
       "index": "5.1.5",
       "parent_id": "map-viewers-capabilities-rendering",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -669,6 +686,7 @@
       "title": "Display map content in a users preferred language",
       "index": "5.1.6",
       "parent_id": "map-viewers-capabilities-rendering",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -775,6 +793,7 @@
       "title": "Show pinpoint locations or custom markers on the map",
       "index": "5.2.1",
       "parent_id": "map-viewers-capabilities-vectors",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -881,6 +900,7 @@
       "title": "Draw polygons or polylines as stylable, interactive vector graphics (separate from the image tiles)",
       "index": "5.2.2",
       "parent_id": "map-viewers-capabilities-vectors",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -987,6 +1007,7 @@
       "title": "Support hyperlinks from markers or vector features",
       "index": "5.2.3",
       "parent_id": "map-viewers-capabilities-vectors",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1093,6 +1114,7 @@
       "title": "Display map data attribution and links",
       "index": "5.2.4",
       "parent_id": "map-viewers-capabilities-vectors",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1199,6 +1221,7 @@
       "title": "Select map view from latitude and longitude point",
       "index": "5.3.1",
       "parent_id": "map-viewers-capabilities-locations",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1305,6 +1328,7 @@
       "title": "Select map view from street address or place name",
       "index": "5.3.2",
       "parent_id": "map-viewers-capabilities-locations",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1411,6 +1435,7 @@
       "title": "Display map tiles defined in various common coordinate systems",
       "index": "5.3.3",
       "parent_id": "map-viewers-capabilities-locations",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1517,6 +1542,7 @@
       "title": "Reproject map tile data into a new projection or globe view",
       "index": "5.3.4",
       "parent_id": "map-viewers-capabilities-locations",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1623,6 +1649,7 @@
       "title": "Save the location or export to other application",
       "index": "5.3.5",
       "parent_id": "map-viewers-capabilities-locations",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1729,6 +1756,7 @@
       "title": "Zoom the map independently from the rest of the page",
       "index": "5.4.1",
       "parent_id": "map-viewers-capabilities-user-navigation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1835,6 +1863,7 @@
       "title": "Pan the map display",
       "index": "5.4.2",
       "parent_id": "map-viewers-capabilities-user-navigation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -1941,6 +1970,7 @@
       "title": "Load additional map tiles when they pan into view",
       "index": "5.4.3",
       "parent_id": "map-viewers-capabilities-user-navigation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2047,6 +2077,7 @@
       "title": "Wrap/duplicate data tiles when panning around the globe",
       "index": "5.4.4",
       "parent_id": "map-viewers-capabilities-user-navigation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }], 
       "implementations": [
         {
@@ -2153,6 +2184,7 @@
       "title": "Maintain reasonable scale of labels and lines when zooming",
       "index": "5.4.5",
       "parent_id": "map-viewers-capabilities-user-navigation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2259,6 +2291,7 @@
       "title": "Dynamically load different resolution map tile on zoom",
       "index": "5.4.6",
       "parent_id": "map-viewers-capabilities-user-navigation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2365,6 +2398,7 @@
       "title": "Hide or show (and maybe dynamically load) vector features and labels on zoom",
       "index": "5.4.7",
       "parent_id": "map-viewers-capabilities-user-navigation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2471,6 +2505,7 @@
       "title": "Apply custom styling to map markers and vector features",
       "index": "5.5.1",
       "parent_id": "map-viewers-capabilities-custom-styling",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2577,6 +2612,7 @@
       "title": "Apply custom styling to map controls",
       "index": "5.5.2",
       "parent_id": "map-viewers-capabilities-custom-styling",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2683,6 +2719,7 @@
       "title": "Toggle whether default controls are displayed",
       "index": "5.5.3",
       "parent_id": "map-viewers-capabilities-custom-styling",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2789,6 +2826,7 @@
       "title": "Create, initialise, and display a map",
       "index": "6.1.1",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -2895,6 +2933,7 @@
       "title": "Add a marker or multiple markers to a map",
       "index": "6.1.2",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3001,6 +3040,7 @@
       "title": "Implement a custom control",
       "index": "6.1.3",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3107,6 +3147,7 @@
       "title": "Add a layer to a map",
       "index": "6.1.4",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3213,6 +3254,7 @@
       "title": "Define a data source for a tile layer",
       "index": "6.1.5",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3319,6 +3361,7 @@
       "title": "Create an overlay defined by vector data",
       "index": "6.1.6",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3425,6 +3468,7 @@
       "title": "Create an overlay defined by heatmap data",
       "index": "6.1.7",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3531,6 +3575,7 @@
       "title": "Control which layers are included in a map",
       "index": "6.1.8",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3637,6 +3682,7 @@
       "title": "Specify the style of a map",
       "index": "6.1.9",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3743,6 +3789,7 @@
       "title": "Determine the current style of a map",
       "index": "6.1.10",
       "parent_id": "client-apis-creation",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3849,6 +3896,7 @@
       "title": "Get the bounds of a map",
       "index": "6.2.1",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -3955,6 +4003,7 @@
       "title": "Pan, zoom, or re-centre a map",
       "index": "6.2.2",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -4061,6 +4110,7 @@
       "title": "Subscribe to notifications of map events",
       "index": "6.2.3",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -4167,6 +4217,7 @@
       "title": "Change the bearing of a map",
       "index": "6.2.4",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -4273,6 +4324,7 @@
       "title": "Move the map to display a given location",
       "index": "6.2.5",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -4379,6 +4431,7 @@
       "title": "Pan and zoom a map so as to completely show the area covered by a given bounding box",
       "index": "6.2.6",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -4485,6 +4538,7 @@
       "title": "Animate the re-centering of the map view",
       "index": "6.2.7",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -4591,6 +4645,7 @@
       "title": "Animate the zooming of the map",
       "index": "6.2.8",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
@@ -4697,6 +4752,7 @@
       "title": "Animate the re-centering of the map",
       "index": "6.2.9",
       "parent_id": "client-apis-map-viewport",
+      "status": "accepted",
       "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
