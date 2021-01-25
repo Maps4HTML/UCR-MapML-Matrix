@@ -216,10 +216,10 @@
               input = this._layers[i].input.labels[0].getElementsByTagName("input");
           input[0].checked = this._layers[i].layer._layerEl.checked;
           if(this._layers[i].layer._layerEl.disabled && this._layers[i].layer._layerEl.checked){
-            input[0].parentElement.parentElement.parentElement.parentElement.disabled = true;
+            input[0].closest("fieldset").disabled = true;
             label[0].style.fontStyle = "italic";
           } else {
-            input[0].parentElement.parentElement.parentElement.parentElement.disabled = false;
+            input[0].closest("fieldset").disabled = false;
             label[0].style.fontStyle = "normal";
           }
         }
@@ -4082,11 +4082,13 @@
     _show: function (e) {
       if(this._mapMenuVisible) this._hide();
       this._clickEvent = e;
-      if(e.originalEvent.srcElement.tagName === "SPAN"){
-        if(!e.originalEvent.srcElement.layer.validProjection) return;
-        this._layerClicked = e.originalEvent.srcElement;
+      let elem = e.originalEvent.srcElement;
+      if(elem.closest("fieldset")){
+        elem = elem.closest("fieldset").querySelector("span");
+        if(!elem.layer.validProjection) return;
+        this._layerClicked = elem;
         this._showAtPoint(e.containerPoint, e, this._layerMenu);
-      } else if(e.originalEvent.srcElement.classList.contains("leaflet-container")) {
+      } else if(elem.classList.contains("leaflet-container")) {
         this._layerClicked = undefined;
         this._showAtPoint(e.containerPoint, e, this._container);
       }
