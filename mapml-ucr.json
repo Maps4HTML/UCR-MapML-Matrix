@@ -39,7 +39,6 @@
       "capabilities": {
         "capability-default-map": { "notes": "" },
         "capability-location-latlong": { "notes": "" },
-        "capability-marker-points": { "notes": "" },
         "capability-marker-points": { "notes": "" }
       }
     },
