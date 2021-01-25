@@ -108,18 +108,10 @@
       outline: 3px black solid;
     }
 
-    /* a[href^="http://"] {
-      background: url(./external-link-icon.svg) center right no-repeat;
-      padding-right: 13px;
-    } */
-
-    /* a[href^="http"]:after {
-      content: url(./external-link-icon.svg);
-      background-image:url(./external-link-icon.svg);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 12 12'%3E%3Cpolygon points='2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10'/%3E%3Cpolygon points='6.2,2 10,2 10,5.8 8.5,4.3 6.4,6.5 5.5,5.5 7.6,3.4'/%3E%3C/svg%3E") center right no-repeat;
-      height:32px;
-      width:32px;
-    } */
+    a[href^="http"]::after {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='cornflowerblue' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath d='M2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10M6.2,2 10,2 10,5.8 8.5,4.3 6.4,6.5 5.5,5.5 7.6,3.4'/%3E%3C/svg%3E");
+      margin: 0 0 0 2px;
+    }
 
   </style>
 
@@ -133,41 +125,6 @@
   <h2 id="implementations">Implementations</h2>
   <section id="implementation_container">
   </section>
-
-<!-- 
-  <dl>
-    <dt>MapML specification</dt>
-    <dd>Draft specification for the MapML Element</dd>
-
-    <dt>Web-Map custom component</dt>
-    <dd>Reference polyfill implementation of the MapML specification</dd>
-
-    <dt>OpenStreetMap</dt>
-    <dd>OpenStreetMap embeds</dd>
-
-    <dt>Bing Maps</dt>
-    <dd>Bing Maps embeds and Bing Maps Control API</dd>
-
-    <dt>MapKit</dt>
-    <dd>MapKit JS (Apple Maps) API</dd>
-
-    <dt>Mapbox</dt>
-    <dd>Mapbox GL JS API and Mapbox Studio embeds</dd>
-
-    <dt>Leaflet.js</dt>
-    <dd>Leaflet.js API</dd>
-
-    <dt>OpenLayers</dt>
-    <dd>OpenLayers API</dd>
-
-    <dt>TomTom</dt>
-    <dd>TomTom Maps SDK for Web</dd>
-
-    <dt>D3</dt>
-    <dd>D3 Geographies APIs</dd>
-
-  </dl> 
--->
 
   <h2 id="approved-capabilities">Approved capabilities</h2>
   <section id="cap_table_container">
@@ -218,7 +175,7 @@
     </section>
   </section>
 
-  <section>
+  <!-- <section>
     <h2 id="notes">Notes</h2>
 
     <section id="note-1">
@@ -227,9 +184,6 @@
       <p><a href="#note-1-ref">back</a></p>
     </section>
 
-  </section>
-  
-
+  </section> -->
 </body>
-
 </html>
