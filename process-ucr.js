@@ -5,11 +5,12 @@ export class UCR_Processor {
   }
 
   load_json (json_url) {
-
     fetch(json_url)
       .then( response =>  response.json() )
       .then((json) => {
         this.json = json;
+      })
+      .then(() => {
         this.create_capabilities_table();
         this.create_use_cases_table();
       })
