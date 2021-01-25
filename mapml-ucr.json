@@ -1,4 +1,306 @@
 {
+  "use-cases": {
+    "content-author-use-cases": {
+      "title": "Content author use cases",
+      "index": "3.1",
+      "parent_id": null,
+      "capabilities": {}
+    },
+    "use-case-create-map": {
+      "title": "Display an interactive map within a web page",
+      "index": "3.1.1",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-declarative-map": { "notes": "" }
+      }
+    },
+    "use-case-single-location": {
+      "title": "Display a map centered on a point location",
+      "index": "3.1.2",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-default-map": { "notes": "" },
+        "capability-location-latlong": { "notes": "" },
+        "capability-marker-points": { "notes": "" }
+      }
+    },
+    "use-case-static-map": {
+      "title": "Display a region of map data as a static image",
+      "index": "3.1.3",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-no-js": { "notes": "" }
+      }
+    },
+    "use-case-multiple-location-markers": {
+      "title": "Display multiple point locations as map markers",
+      "index": "3.1.4",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-default-map": { "notes": "" },
+        "capability-location-latlong": { "notes": "" },
+        "capability-marker-points": { "notes": "" },
+        "capability-marker-points": { "notes": "" }
+      }
+    },
+    "use-case-poly-features": {
+      "title": "Display routes/paths or regions",
+      "index": "3.1.5",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-default-map": { "notes": "" },
+        "capability-location-latlong": { "notes": "" },
+        "capability-marker-points": { "notes": "" },
+        "capability-vector-features": { "notes": "" }
+      }
+    },
+    "use-case-html-annotations": {
+      "title": "Display custom web content describing map features",
+      "index": "3.1.6",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-default-map": { "notes": "" },
+        "capability-location-latlong": { "notes": "" },
+        "capability-marker-points": { "notes": "" },
+        "capability-hyperlinks": { "notes": "" }
+      }
+    },
+    "use-case-custom-map": {
+      "title": "Display custom imagery as a map layer",
+      "index": "3.1.7",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-single-custom-image": { "notes": "optional" },
+        "capability-custom-map-tiles": { "notes": "optional" },
+        "capability-lazy-load": { "notes": "For more complex maps" },
+        "capability-zoom-swap": { "notes": "For more complex maps" },
+        "capability-define-data-source-tile-layer": {
+          "notes": "For adding custom maps from script"
+        }
+      }
+    },
+    "use-case-layers": {
+      "title": "Combine multiple layers of map tile data or features",
+      "index": "3.1.8",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-single-custom-image": { "notes": "optional" },
+        "capability-custom-map-tiles": { "notes": "optional" },
+        "capability-define-data-source-tile-layer": {
+          "notes": "For adding custom maps from script"
+        }
+      }
+    },
+    "use-case-alternative-layers": {
+      "title": "Provide alternative map layers which the user can select",
+      "index": "3.1.9",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-specify-style-map": { "notes": "API" },
+        "capability-determine-current-style-map": { "notes": "" }
+      }
+    },
+    "use-case-technical-drawings": {
+      "title": "Display drawings or schematics without geographic coordinates",
+      "index": "3.1.10",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {
+        "capability-single-custom-image": { "notes": "" },
+        "capability-tile-coordinate-systems": { "notes": "" }
+      }
+    },
+    "use-case-animated-spatial-data-in-layers": {
+      "title": "Include animated spatial data in a layer",
+      "index": "3.1.11",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {}
+    },
+    "use-case-require-interaction": {
+      "title": "Require interaction before allowing pan/zoom (or opt-out of such potentially default behavior)",
+      "index": "3.1.12",
+      "parent_id": "content-author-use-cases",
+      "capabilities": {}
+    },
+    "visitor-use-cases": {
+      "title": "Website visitor use cases",
+      "index": "3.2",
+      "parent_id": null,
+      "capabilities": {}
+    },
+    "use-case-interactive": {
+      "title": "Reposition or scale a map to find more context for the displayed locations",
+      "index": "3.2.1",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {
+        "capability-pan-zoom-or-re-centre-map": { "notes": "" }
+      }
+    },
+    "use-case-reset-map-view": {
+      "title": "Reset the map to the initial view",
+      "index": "3.2.2",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {
+        "capability-pan-zoom-or-re-centre-map": {
+          "notes": "As a custom application feature"
+        }
+      }
+    },
+    "use-case-rotate-map": {
+      "title": "Rotate a map, or reset the bearing",
+      "index": "3.2.3",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {
+        "capability-change-bearing-map": { "notes": "" }
+      }
+    },
+    "use-case-identify": {
+      "title": "Access additional information about a point on the map",
+      "index": "3.2.4",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-hide-layers": {
+      "title": "Show/hide map layers or feature sets",
+      "index": "3.2.5",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {
+        "capability-add-layer-map": {
+          "notes": "As a custom application feature"
+        },
+        "capability-control-layers-map": {
+          "notes": "As a custom application feature"
+        }
+      }
+    },
+    "use-case-bookmark": {
+      "title": "Bookmark a location",
+      "index": "3.2.6",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-search-features": {
+      "title": "Search or sort within a set of geographic features",
+      "index": "3.2.7",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-color-scheme": {
+      "title": "Customize the color scheme (light/dark or high contrast)",
+      "index": "3.2.8",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-view-location-securely": {
+      "title": "View the current location on a map, without disclosing to the website",
+      "index": "3.2.9",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-fullscreen": {
+      "title": "View a map in fullscreen mode",
+      "index": "3.2.10",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-picture-in-picture": {
+      "title": "View a map as a Picture-In-Picture media object",
+      "index": "3.2.11",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-augmented-reality": {
+      "title": "View a map in augmented reality",
+      "index": "3.2.12",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "use-case-offline-maps": {
+      "title": "Save map content for offline use",
+      "index": "3.2.13",
+      "parent_id": "visitor-use-cases",
+      "capabilities": {}
+    },
+    "application-use-cases": {
+      "title": "Application developer use cases",
+      "index": "3.3",
+      "parent_id": null,
+      "capabilities": {}
+    },
+    "use-case-add-custom-control": {
+      "title": "Add a custom control to a map",
+      "index": "3.3.1",
+      "parent_id": "application-use-cases",
+      "capabilities": {
+        "capability-implement-a-custom-control": { "notes": "" }
+      }
+    },
+    "use-case-view-change-events": {
+      "title": "Provide feedback to a user as they manipulate the map",
+      "index": "3.3.2",
+      "parent_id": "application-use-cases",
+      "capabilities": {
+        "capability-get-bounds-map": { "notes": "" },
+        "capability-map-events": { "notes": "" }
+      }
+    },
+    "use-case-set-view-zoom": {
+      "title": "Move a map to a new position and/or zoom level",
+      "index": "3.3.3",
+      "parent_id": "application-use-cases",
+      "capabilities": {
+        "capability-pan-zoom-or-re-centre-map": { "notes": "" },
+        "capability-move-the-map-to-display-a-given-location": { "notes": "" },
+        "capability-pan-and-zoom-to-bounding-box": { "notes": "" }
+      }
+    },
+    "use-case-animate-view-change": {
+      "title": "Animate a map through a sequence of points",
+      "index": "3.3.4",
+      "parent_id": "application-use-cases",
+      "capabilities": {
+        "capability-animate-the-zooming-of-the-map": { "notes": "" },
+        "capability-animate-the-re-centering-of-the-map": { "notes": "" }
+      }
+    },
+    "use-case-change-bearing-map": {
+      "title": "Change the bearing of a map",
+      "index": "3.3.5",
+      "parent_id": "application-use-cases",
+      "capabilities": {
+        "capability-change-bearing-map": { "notes": "" }
+      }
+    },
+    "use-case-set-layer-visibility": {
+      "title": "Control which layers are currently visible &amp; which can be hidden by the user",
+      "index": "3.3.6",
+      "parent_id": "application-use-cases",
+      "capabilities": {}
+    },
+    "use-case-generate-vector-features": {
+      "title": "Generate new vector features from data",
+      "index": "3.3.7",
+      "parent_id": "application-use-cases",
+      "capabilities": {
+        "capability-add-layer-map": { "notes": "" },
+        "capability-create-an-overlay-defined-by-vector-data": { "notes": "" }
+      }
+    },
+    "use-case-heatmap": {
+      "title": "Generate a heatmap overlay from point intensity data",
+      "index": "3.3.8",
+      "parent_id": "application-use-cases",
+      "capabilities": {
+        "capability-control-layers-map": { "notes": "" },
+        "capability-create-an-overlay-defined-by-heatmap-data": { "notes": "" }
+      }
+    },
+    "use-case-drag-and-drop": {
+      "title": "Enable drag &amp; drop for map layers",
+      "index": "3.3.9",
+      "parent_id": "application-use-cases",
+      "capabilities": {}
+    }
+  },
   "implementations": [
     {
       "mapml-spec": {
@@ -253,7 +555,7 @@
           }
         }
       ]
-    },      
+    },
     "capability-default-map": {
       "title": "Generate a default map for a given area",
       "index": "5.1.2",
@@ -2078,7 +2380,7 @@
       "index": "5.4.4",
       "parent_id": "map-viewers-capabilities-user-navigation",
       "status": "accepted",
-      "use cases": [{ "title": "", "ucr_id": "", "url": "" }], 
+      "use cases": [{ "title": "", "ucr_id": "", "url": "" }],
       "implementations": [
         {
           "mapml-spec": {
