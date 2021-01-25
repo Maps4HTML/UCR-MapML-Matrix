@@ -1,9 +1,6 @@
 export class UCR_Processor {
   constructor( json_url ) {
     this.json = null;
-
-    // console.log(json_url);
-
     this.load_json(json_url);
   }
 
@@ -14,6 +11,7 @@ export class UCR_Processor {
       .then((json) => {
         this.json = json;
         this.create_capabilities_table();
+        this.create_use_cases_table();
       })
   }
 
@@ -22,7 +20,7 @@ export class UCR_Processor {
   create_capabilities_table () {
     const container = document.getElementById(`cap_table_container`);
     const imp_container = document.getElementById(`implementation_container`);
-    // console.log(this.json);
+    console.log(this.json);
 
     let table_el = document.createElement(`table`);
     table_el.id = `approved-capabilities-table`;
@@ -62,7 +60,6 @@ export class UCR_Processor {
 
     const groups = this.json[`capability-groups`];
     Object.keys(groups).forEach(key=>{
-      // console.log(key, groups[key]);
       const val = groups[key];
 
       let tr = document.createElement(`tr`);
@@ -73,8 +70,6 @@ export class UCR_Processor {
       if (!val.parent_id) {
         th.classList.add(`ucr-group`);
       }
-
-      console.log(val.title);
       
       let a = document.createElement(`a`);
       a.href = `https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#${key}`;
@@ -92,9 +87,7 @@ export class UCR_Processor {
 
 
     const caps = this.json[`capabilities`];
-    // console.log(caps)
     Object.keys(caps).forEach(key=>{
-      // console.log(key, groups[key]);
       const val = caps[key];
 
       let tr = document.createElement(`tr`);
@@ -112,33 +105,26 @@ export class UCR_Processor {
       tr.appendChild(th);
 
       const cap_imps = val[`implementations`];
-      // console.log(cap_imps);
       for(let cap_imp of cap_imps) {
-        // console.log(imp)
         Object.keys(cap_imp).forEach(key=>{
           const val = cap_imp[key];
-          // console.log(val);
           let td = document.createElement(`td`);
           let val_str = val.support;
           if (val_str) {
             td.classList.add(val_str.replace(` `, `_`));
           }
-          // console.log(val.support);
           td.textContent = val_str;
           tr.appendChild(td);
         });
       }
 
       const parent_row = tbody.querySelector(`#${val.parent_id}`);
-      // console.log(parent_row);
       let next_row = parent_row;
-      // while (next_row.nextElementSibling && !next_row.nextElementSibling.classList.contains(`ucr-group`)) {
       while (next_row.nextElementSibling 
         && next_row.nextElementSibling.firstChild.classList.contains(`capability`)) {
         next_row = next_row.nextElementSibling;
       }
       next_row.after(tr);
-      // tbody.appendChild(tr);
     });
 
     let old_table = container.querySelector(`table`);
@@ -151,8 +137,90 @@ export class UCR_Processor {
     imp_container.appendChild(dl);
   }
 
-  find_table_position (parent_id, parent_class) {
 
+
+  create_use_cases_table () {
+    const container = document.getElementById(`use_case_container`);
+    const capabilities = this.json[`capabilities`];
+
+    let table_el = document.createElement(`table`);
+    table_el.id = `use-cases-table`;
+    let thead = document.createElement(`thead`);
+    table_el.appendChild(thead);
+    let tr = document.createElement(`tr`);
+    thead.appendChild(tr);
+
+    const use_case_headers = [
+      `use case`,
+      `capabilities`
+    ];
+
+    for(let use_case_header of use_case_headers) {
+      let th = document.createElement(`th`);
+      th.textContent = use_case_header;
+      tr.appendChild(th);
+    }
+
+    let tbody = document.createElement(`tbody`);
+    table_el.appendChild(tbody);
+
+    const use_cases = this.json[`use-cases`];
+    Object.keys(use_cases).forEach(key=>{
+      const val = use_cases[key];
+
+      let tr = document.createElement(`tr`);
+      tr.id = key;
+      let th = document.createElement(`th`);
+      
+      let a = document.createElement(`a`);
+      a.href = `https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#${key}`;
+      a.textContent = val.title;
+      let index_span = document.createElement(`span`);
+      index_span.classList.add(`index`);
+      index_span.textContent = ` (${val.index})`;
+      a.appendChild(index_span);
+      th.appendChild(a);
+      tr.appendChild(th);
+
+      if (!val.parent_id) {
+        th.classList.add(`ucr-category`);
+        th.setAttribute(`colspan`, `999`);
+      } else {
+        let td = document.createElement(`td`);
+        let ul = document.createElement(`ul`);
+        td.appendChild(ul);
+        const caps = val[`capabilities`];
+        Object.keys(caps).forEach(key=>{
+          const capability = capabilities[key];
+          let li = document.createElement(`li`);
+          let a = document.createElement(`a`);
+          // a.href = `https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#${key}`;
+          a.href = `#${key}`;
+
+
+  
+          // console.log(capabilities[key].title);
+          a.textContent = capability.title;
+
+          let index_span = document.createElement(`span`);
+          index_span.classList.add(`index`);
+          index_span.textContent = ` (${capability.index})`;
+          a.appendChild(index_span);
+          td.appendChild(a);
+    
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    });
+
+    let old_table = container.querySelector(`table`);
+    if (old_table) {
+      container.replaceChild(table_el, old_table);
+    } else {
+      container.appendChild(table_el);
+    }
   }
-
 }
