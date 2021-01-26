@@ -6,6 +6,10 @@
   <title>MapML UCR Fullfillment Matrix</title>
   <style>
 
+    body {
+      /* scroll-padding-top: 100px; */
+    }
+
     dl {
       display: flex;
       flex-flow: row wrap;
@@ -112,6 +116,7 @@
 
     tr:target {
       outline: 3px black solid;
+      /* scroll-padding-top: 2rem; */
     }
 
     .external_link::after,
@@ -120,6 +125,10 @@
       margin: 0 0 0 2px;
     }
 
+    #proposed_capabilities_container {
+      background-color: antiquewhite;
+      opacity: 0.75;
+    }
   </style>
 
   <script type="module" src="./main.js"></script>
@@ -150,43 +159,46 @@
   </section>
 
   <h2 id="approved-capabilities">Proposed capabilities</h2>
+  <section id="proposed_capabilities_container">
+    <p><b>Note:</b> This is a placeholder section for future discussion of proposed capabilties.</p>
 
-  <table id="proposed-capabilities-table">
-    <thead>
-      <tr>
-        <th>proposed capability</th>
-        <th>category</th>
-        <th>MapML specification</th>
-        <th>Web-Map custom component</th>
-        <th>Bing Maps</th>
-        <th>D3</th>
-        <th>Google Maps</th>
-        <th>Leaflet.js</th>
-        <th>Mapbox</th>
-        <th>MapKit</th>
-        <th>OpenLayers</th>
-        <th>OpenStreetMap</th>
-        <th>TomTom</th>  
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-default-map">Name and link to Github issue</a></th>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </tbody>
-  </table>
+    <table id="proposed-capabilities-table">
+      <thead>
+        <tr>
+          <th>proposed capability</th>
+          <th>category</th>
+          <th>MapML specification</th>
+          <th>Web-Map custom component</th>
+          <th>Bing Maps</th>
+          <th>D3</th>
+          <th>Google Maps</th>
+          <th>Leaflet.js</th>
+          <th>Mapbox</th>
+          <th>MapKit</th>
+          <th>OpenLayers</th>
+          <th>OpenStreetMap</th>
+          <th>TomTom</th>  
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="capability"><a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#capability-default-map">Name and link to Github issue</a></th>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
   <section>
     <h2 id="use-cases">Use Cases</h2>
