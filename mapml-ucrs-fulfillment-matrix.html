@@ -38,6 +38,12 @@
       color: white;
     }
 
+      thead th {
+        background-color: gray;
+        position: sticky;
+        top: 0; /* required for stickiness */
+      }
+
     table td,
     table th {
       padding: 0;
@@ -108,6 +114,7 @@
       outline: 3px black solid;
     }
 
+    .external_link::after,
     a[href^="http"]::after {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='cornflowerblue' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath d='M2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10M6.2,2 10,2 10,5.8 8.5,4.3 6.4,6.5 5.5,5.5 7.6,3.4'/%3E%3C/svg%3E");
       margin: 0 0 0 2px;
@@ -120,7 +127,19 @@
 </head>
 
 <body>
-  <h1>MapML UCR Fullfillment Matrix</h1>
+  <h1 id="title">MapML Use Case, Requirement, and Capability Matrix</h1>
+  <p>This document compares the capabilities of existing popular web mapping libraries, comparing and contrasting implementations with the  <cite><a href="https://maps4html.org/MapML/spec/">MapML specification</a></cite> and the reference <a href="https://github.com/Maps4HTML/Web-Map-Custom-Element">MapML-Viewer custom-component polyfill</a>.</p>
+    
+  <p>The capabilities indicated are split between common functionality that should be in any implementation (and thus suitable for standards) and aspirational features that should be natively implementated in browsers but which are not yet widely supported in most JavaScript libraries.</p>
+
+  <h2 id="background">Background</h2>
+  <p>Web maps provide a predominantly visual, spatial view into geographic data, for a wide variety of use cases. It is a complicated field, organically developed over many decades, with many different capabilities among the different web mapping <abbr title="Application Programming Interfaces">APIs</abbr>, <abbr title="Software Development Kits">SDKs</abbr>, and embeddable map widgets. The aim of this study is to assess which needs the existing solutions meet, which services they provide in common with each other, and what the levels of granularity are available in web mapping APIs.</p>
+  
+  <p>This document is a summary of the more detailed <a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements">Use Cases and Requirements for Standardizing Web Maps</a> document developed by the W3C <a href="https://www.w3.org/community/maps4html/">Maps For HTML Community Group</a>. (References to that document in the tables below are indicated with an <span class="external_link">external link icon</span>.)</p>
+
+  <h2 id="technical-note">Technical Note</h2>
+  <p>The tables in this document are dynamically generated from a JSON file, <a href="https://github.com/Maps4HTML/UCR-MapML-Matrix/main/mapml-ucr.json">mapml-ucr.json</a>, shared between this document and the <a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements">Use Cases and Requirements for Standardizing Web Maps</a> report. The shared JSON file is intended to keep the documents synchronized, but requires that client-side JavaScript is enabled.</p>
+
   
   <h2 id="implementations">Implementations</h2>
   <section id="implementation_container">
