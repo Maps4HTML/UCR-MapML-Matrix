@@ -23,9 +23,10 @@ export class UCR_Processor {
     const imp_container = document.getElementById(`implementation_container`);
     console.log(this.json);
 
+    // create table element
     let table_el = document.createElement(`table`);
     table_el.id = `approved-capabilities-table`;
-    // table_el.classList.add(`bin_table`);
+
     let thead = document.createElement(`thead`);
     table_el.appendChild(thead);
     let tr = document.createElement(`tr`);
@@ -37,6 +38,7 @@ export class UCR_Processor {
 
     let dl = document.createElement(`dl`);
 
+    // iterate over implementations for header row
     const imps = this.json[`implementations`];
     for(let imp of imps) {
       // console.log(imp)
@@ -46,7 +48,7 @@ export class UCR_Processor {
         th.textContent = val.title;
         tr.appendChild(th);
 
-        // add entry to implementations list
+        // add entry to implementations definition list
         let dt = document.createElement(`dt`);
         dt.textContent = val.title;
         dl.appendChild(dt);
@@ -59,6 +61,7 @@ export class UCR_Processor {
     let tbody = document.createElement(`tbody`);
     table_el.appendChild(tbody);
 
+    // iterate over grouping rows, which are stored separately from capabilities
     const groups = this.json[`capability-groups`];
     Object.keys(groups).forEach(key=>{
       const val = groups[key];
@@ -87,6 +90,7 @@ export class UCR_Processor {
     });
 
 
+    // iterate over capability rows
     const caps = this.json[`capabilities`];
     Object.keys(caps).forEach(key=>{
       const val = caps[key];
@@ -105,6 +109,7 @@ export class UCR_Processor {
       th.appendChild(a);
       tr.appendChild(th);
 
+      // iterate over implementation support columns for each capability rows
       const cap_imps = val[`implementations`];
       for(let cap_imp of cap_imps) {
         Object.keys(cap_imp).forEach(key=>{
@@ -119,6 +124,7 @@ export class UCR_Processor {
         });
       }
 
+      // position each capability in the proper section, relative to its grouping row
       const parent_row = tbody.querySelector(`#${val.parent_id}`);
       let next_row = parent_row;
       while (next_row.nextElementSibling 
@@ -128,16 +134,9 @@ export class UCR_Processor {
       next_row.after(tr);
     });
 
-    let old_table = container.querySelector(`table`);
-    if (old_table) {
-      container.replaceChild(table_el, old_table);
-    } else {
-      container.appendChild(table_el);
-    }
-
+    container.appendChild(table_el);
     imp_container.appendChild(dl);
   }
-
 
 
   create_use_cases_table () {
@@ -151,6 +150,7 @@ export class UCR_Processor {
     let tr = document.createElement(`tr`);
     thead.appendChild(tr);
 
+    // create table headers
     const use_case_headers = [
       `use case`,
       `capabilities`
@@ -165,6 +165,7 @@ export class UCR_Processor {
     let tbody = document.createElement(`tbody`);
     table_el.appendChild(tbody);
 
+    // iterate over use-case rows (includes use-case group rows)
     const use_cases = this.json[`use-cases`];
     Object.keys(use_cases).forEach(key=>{
       const val = use_cases[key];
@@ -184,9 +185,11 @@ export class UCR_Processor {
       tr.appendChild(th);
 
       if (!val.parent_id) {
+        // if this is a use-case group row, mark the class and colspan
         th.classList.add(`ucr-category`);
         th.setAttribute(`colspan`, `999`);
       } else {
+        // iterate over related capabilities for each use case
         let td = document.createElement(`td`);
         let ul = document.createElement(`ul`);
         td.appendChild(ul);
@@ -195,12 +198,8 @@ export class UCR_Processor {
           const capability = capabilities[key];
           let li = document.createElement(`li`);
           let a = document.createElement(`a`);
-          // a.href = `https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#${key}`;
           a.href = `#${key}`;
 
-
-  
-          // console.log(capabilities[key].title);
           a.textContent = capability.title;
 
           let index_span = document.createElement(`span`);
@@ -217,11 +216,6 @@ export class UCR_Processor {
       tbody.appendChild(tr);
     });
 
-    let old_table = container.querySelector(`table`);
-    if (old_table) {
-      container.replaceChild(table_el, old_table);
-    } else {
-      container.appendChild(table_el);
-    }
+    container.appendChild(table_el);
   }
 }
