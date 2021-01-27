@@ -564,15 +564,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "No consensus for support",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "No consensus for support",
             "example_url": ""
           }
         },
@@ -671,15 +671,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Intent to support",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "Supported by underlying Leaflet library, but not supported by spec",
             "example_url": ""
           }
         },
@@ -778,14 +778,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -885,15 +885,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "No additional JavaScript needed, beyond custom element support",
             "example_url": ""
           }
         },
@@ -992,15 +992,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "partial",
+            "notes": "Supports `lang` attribute, but doesn't discuss switching languages",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Intent to implement",
             "example_url": ""
           }
         },
@@ -1099,14 +1099,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "partial",
+            "notes": "Needs discussion whether markers are a type of feature",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -1313,15 +1313,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Intended to be added",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Intended to be added",
             "example_url": ""
           }
         },
