@@ -1206,14 +1206,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -1320,8 +1320,8 @@
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "none",
-            "notes": "Intended to be added",
+            "support": "limited",
+            "notes": "Available through a popup",
             "example_url": ""
           }
         },
@@ -1420,14 +1420,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -1527,14 +1527,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -1634,15 +1634,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Out of scope for standard",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Out of scope for standard",
             "example_url": ""
           }
         },
@@ -1741,14 +1741,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -1848,15 +1848,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Out of scope for client-side standard",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Out of scope for client-side standard",
             "example_url": ""
           }
         },
@@ -1955,15 +1955,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "Need discussion, may be defined as URL fragment identifier",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "Allows selection of coordinates from menu",
             "example_url": ""
           }
         },
@@ -2062,14 +2062,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -2169,14 +2169,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -2276,14 +2276,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -2383,15 +2383,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Needs discussion",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "partial",
+            "notes": "Only with Web Mercator projection",
             "example_url": ""
           }
         },
@@ -2490,14 +2490,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "Needs discussion; implicit support through server-side tile request; partial support for vector tiles, underspecified for client-side vector label/line sizing",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -2597,14 +2597,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
@@ -2704,15 +2704,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "Handled through tile negotiation with server; not yet addressed as adaptive client-side feature; oustanding issue, ISSUE-7",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "full",
+            "notes": "Handled through tile negotiation with server, and as adaptive client-side feature",
             "example_url": ""
           }
         },
@@ -2811,15 +2811,15 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "Needs discussion; needs point feature in SVG",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
-            "notes": "",
+            "support": "limited",
+            "notes": "Can use CSS to style feature, but not markers",
             "example_url": ""
           }
         },
@@ -2918,14 +2918,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
-            "notes": "",
+            "support": "none",
+            "notes": "Needs discussion",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "none",
             "notes": "",
             "example_url": ""
           }
@@ -3025,14 +3025,14 @@
       "implementations": [
         {
           "mapml-spec": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
         },
         {
           "mapml-viewer-polyfill": {
-            "support": "",
+            "support": "full",
             "notes": "",
             "example_url": ""
           }
