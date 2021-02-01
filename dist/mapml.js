@@ -2381,7 +2381,7 @@
       },
       _onZoomAnim: function(e) {
         var toZoom = e.zoom,
-            zoom = this._extent.querySelector("input[type=zoom]"),
+            zoom = this._extent ? this._extent.querySelector("input[type=zoom]") : null,
             min = zoom && zoom.hasAttribute("min") ? parseInt(zoom.getAttribute("min")) : this._map.getMinZoom(),
             max =  zoom && zoom.hasAttribute("max") ? parseInt(zoom.getAttribute("max")) : this._map.getMaxZoom(),
             canZoom = (toZoom < min && this._extent.zoomout) || (toZoom > max && this._extent.zoomin);
@@ -2797,11 +2797,16 @@
               if(mapml.querySelector('feature'))layer._content = mapml;
               if(!this.responseXML && this.responseText) mapml = new DOMParser().parseFromString(this.responseText,'text/xml');
               if (this.readyState === this.DONE && mapml.querySelector) {
-                  var serverExtent = mapml.querySelector('extent') || mapml.querySelector('meta[name=projection]'),
-                      projectionMatch = serverExtent && serverExtent.hasAttribute('units') && 
-                      serverExtent.getAttribute('units') === layer.options.mapprojection || 
-                      serverExtent && serverExtent.hasAttribute('content') && 
-                      M.metaContentToObject(serverExtent.getAttribute('content')).content === layer.options.mapprojection,
+                  var serverExtent = mapml.querySelector('extent') || mapml.querySelector('meta[name=projection]'), projection;
+
+                  if (serverExtent.tagName.toLowerCase() === "extent" && serverExtent.hasAttribute('units')){
+                    projection = serverExtent.getAttribute("units");
+                  } else if (serverExtent.tagName.toLowerCase() === "meta" && serverExtent.hasAttribute('content')) {
+                    projection = M.metaContentToObject(serverExtent.getAttribute('content')).content;
+                  }
+                      
+                  var projectionMatch = projection && projection === layer.options.mapprojection,
+                      metaExtent = mapml.querySelector('meta[name=extent]'),
                       selectedAlternate = !projectionMatch && mapml.querySelector('head link[rel=alternate][projection='+layer.options.mapprojection+']'),
                       
                       base = 
@@ -2825,7 +2830,31 @@
                     var tlist = serverExtent.querySelectorAll('link[rel=tile],link[rel=image],link[rel=features],link[rel=query]'),
                         varNamesRe = (new RegExp('(?:\{)(.*?)(?:\})','g')),
                         zoomInput = serverExtent.querySelector('input[type="zoom" i]'),
-                        includesZoom = false;
+                        includesZoom = false, extentFallback = {};
+
+                    extentFallback.zoom = 0;
+                    if (metaExtent){
+                      let content = M.metaContentToObject(metaExtent.getAttribute("content")), cs;
+                      
+                      extentFallback.zoom = content.zoom || extentFallback.zoom;
+      
+                      let metaKeys = Object.keys(content);
+                      for(let i =0;i<metaKeys.length;i++){
+                        if(!metaKeys[i].includes("zoom")){
+                          cs = M.axisToCS(metaKeys[i].split("-")[2]);
+                          break;
+                        }
+                      }
+                      let axes = M.csToAxes(cs);
+                      extentFallback.bounds = M.boundsToPCRSBounds(
+                        L.bounds(L.point(+content[`top-left-${axes[0]}`],+content[`top-left-${axes[1]}`]),
+                        L.point(+content[`bottom-right-${axes[0]}`],+content[`bottom-right-${axes[1]}`])),
+                        extentFallback.zoom, projection, cs);
+                      
+                    } else {
+                      extentFallback.bounds = M[projection].options.crs.pcrs.bounds;
+                    }
+                      
                     for (var i=0;i< tlist.length;i++) {
                       var t = tlist[i], template = t.getAttribute('tref'); 
                       if(!template){
@@ -2850,6 +2879,16 @@
                         var varName = v[1],
                             inp = serverExtent.querySelector('input[name='+varName+'],select[name='+varName+']');
                         if (inp) {
+
+                          if ((inp.hasAttribute("type") && inp.getAttribute("type")==="location") && (!inp.hasAttribute("min" ))){
+                            zoomInput.setAttribute("value", extentFallback.zoom);
+                            
+                            let axis = inp.getAttribute("axis"), 
+                                axisBounds = M.convertPCRSBounds(extentFallback.bounds, extentFallback.zoom, projection, M.axisToCS(axis));
+                            inp.setAttribute("min", axisBounds.min[M.axisToXY(axis)]);
+                            inp.setAttribute("max", axisBounds.max[M.axisToXY(axis)]);
+                          }
+
                           inputs.push(inp);
                           includesZoom = includesZoom || inp.hasAttribute("type") && inp.getAttribute("type").toLowerCase() === "zoom";
                           if (inp.hasAttribute('shard')) {
@@ -4303,7 +4342,8 @@
       if(!pcrsBounds || !map) return {};
 
       let tcrsTopLeft = [], tcrsBottomRight = [],
-          tileMatrixTopLeft = [], tileMatrixBottomRight = [];
+          tileMatrixTopLeft = [], tileMatrixBottomRight = [],
+          tileSize = map.options.crs.options.crs.tile.bounds.max.y;
 
       for(let i = 0;i<map.options.crs.options.resolutions.length;i++){
         let scale = map.options.crs.scale(i),
@@ -4321,12 +4361,12 @@
 
         //converts the tcrs values from earlier to tilematrix
         tileMatrixTopLeft.push({
-          horizontal: tcrsTopLeft[i].horizontal / 256,
-          vertical:tcrsTopLeft[i].vertical / 256,
+          horizontal: tcrsTopLeft[i].horizontal / tileSize,
+          vertical:tcrsTopLeft[i].vertical / tileSize,
         });
         tileMatrixBottomRight.push({
-          horizontal: tcrsBottomRight[i].horizontal / 256,
-          vertical: tcrsBottomRight[i].vertical / 256,
+          horizontal: tcrsBottomRight[i].horizontal / tileSize,
+          vertical: tcrsBottomRight[i].vertical / tileSize,
         });
       }
       
@@ -4469,6 +4509,49 @@
             return ["easting", "northing"];
         }
       } catch (e) {return undefined;}
+    },
+
+    axisToXY: function(axis){
+      try{
+        switch(axis.toLowerCase()){
+          case "i":
+          case "column":
+          case "longitude":
+          case "x":
+          case "easting":
+            return "x";
+          case "row":
+          case "j":
+          case "latitude":
+          case "y":
+          case "northing":
+            return "y";
+
+          default:
+            return undefined;
+        }
+      } catch (e) {return undefined;}
+    },
+
+    convertPCRSBounds: function(pcrsBounds, zoom, projection, cs){
+      if(!pcrsBounds || !zoom && +zoom !== 0 || !cs) return undefined;
+      switch (cs.toLowerCase()) {
+        case "pcrs":
+          return pcrsBounds;
+        case "tcrs": 
+        case "tilematrix":
+          let minPixel = this[projection].transformation.transform(pcrsBounds.min, this[projection].scale(+zoom)),
+              maxPixel = this[projection].transformation.transform(pcrsBounds.max, this[projection].scale(+zoom));
+          if (cs.toLowerCase() === "tcrs") return L.bounds(minPixel, maxPixel);
+          let tileSize = M[projection].options.crs.tile.bounds.max.x;
+          return L.bounds(L.point(minPixel.x / tileSize, minPixel.y / tileSize), L.point(maxPixel.x / tileSize,maxPixel.y / tileSize)); 
+        case "gcrs":
+          let minGCRS = this[projection].unproject(pcrsBounds.min),
+              maxGCRS = this[projection].unproject(pcrsBounds.max);
+          return L.bounds(L.point(minGCRS.lng, minGCRS.lat), L.point(maxGCRS.lng, maxGCRS.lat)); 
+        default:
+          return undefined;
+      }
     },
 
     boundsToPCRSBounds: function(bounds, zoom, projection,cs){
@@ -5197,6 +5280,8 @@
     });
   }());
 
+  M.convertPCRSBounds = Util.convertPCRSBounds;
+  M.axisToXY = Util.axisToXY;
   M.csToAxes = Util.csToAxes;
   M.convertAndFormatPCRS = Util.convertAndFormatPCRS;
   M.axisToCS = Util.axisToCS;
