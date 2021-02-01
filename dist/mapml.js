@@ -1414,6 +1414,9 @@
             if (!this._queries) {
               this._queries = [];
             }
+            let inputData = M.extractInputBounds(templates[i]);
+            templates[i].layerBounds = inputData.bounds;
+            templates[i].zoomBounds = inputData.zoomBounds;
             this._queries.push(L.extend(templates[i], this._setupQueryVars(templates[i])));
         }
       }
@@ -1434,6 +1437,7 @@
     _onZoomStart: function() {
         this.closePopup();
     },
+
 
     _setupQueryVars: function(template) {
         // process the inputs associated to template and create an object named
@@ -3574,24 +3578,31 @@
                 obj[v] = template.query[v];
             }
         }
-        fetch(L.Util.template(template.template, obj),{redirect: 'follow'}).then(
-            function(response) {
-              if (response.status >= 200 && response.status < 300) {
-                return Promise.resolve(response);
-              } else {
-                console.log('Looks like there was a problem. Status Code: ' + response.status);
-                return Promise.reject(response);
-              }
-            }).then(function(response) {
-              var contenttype = response.headers.get("Content-Type");
-              if ( contenttype.startsWith("text/mapml")) {
-                return handleMapMLResponse(response, e.latlng);
-              } else {
-                return handleOtherResponse(response, layer, e.latlng);
-              }
-            }).catch(function(err) {
-              // no op
-            });
+
+        let point = this._map.project(e.latlng),
+            scale = this._map.options.crs.scale(this._map.getZoom()),
+            pcrsClick = this._map.options.crs.transformation.untransform(point,scale);
+
+        if(template.layerBounds.contains(pcrsClick)){
+          fetch(L.Util.template(template.template, obj),{redirect: 'follow'}).then(
+              function(response) {
+                if (response.status >= 200 && response.status < 300) {
+                  return Promise.resolve(response);
+                } else {
+                  console.log('Looks like there was a problem. Status Code: ' + response.status);
+                  return Promise.reject(response);
+                }
+              }).then(function(response) {
+                var contenttype = response.headers.get("Content-Type");
+                if ( contenttype.startsWith("text/mapml")) {
+                  return handleMapMLResponse(response, e.latlng);
+                } else {
+                  return handleOtherResponse(response, layer, e.latlng);
+                }
+              }).catch(function(err) {
+                // no op
+              });
+        }
         function handleMapMLResponse(response, loc) {
             return response.text().then(mapml => {
                 // bind the deprojection function of the layer's crs 
