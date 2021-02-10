@@ -279,21 +279,25 @@
         L.DomUtil.addClass(this._container,'leaflet-pane mapml-vector-container');
         L.setOptions(this.options.renderer, {pane: this._container});
         this._layers = {};
-        if (mapml) {
-          let nativeZoom = mapml.querySelector("meta[name=zoom]") && 
-                            +M.metaContentToObject(mapml.querySelector("meta[name=zoom]").getAttribute("content")).value || 0;
-          let nativeCS = mapml.querySelector("meta[name=cs]") && 
-                          M.metaContentToObject(mapml.querySelector("meta[name=cs]").getAttribute("content")).content || "GCRS";
+        if(this.options.query){
+          this._mapmlFeatures = mapml;
+          this.isVisible = true;
+          let native = this._getNativeVariables(mapml);
+          this.options.nativeZoom = native.zoom;
+          this.options.nativeCS = native.cs;
+        }
+        if (mapml && !this.options.query) {
+          let native = this._getNativeVariables(mapml);
           //needed to check if the feature is static or not, since this method is used by templated also
           if(!mapml.querySelector('extent') && mapml.querySelector('feature')){
             this._features = {};
             this._staticFeature = true;
             this.isVisible = true; //placeholder for when this actually gets updated in the future
-            this.zoomBounds = this._getZoomBounds(mapml, nativeZoom);
+            this.zoomBounds = this._getZoomBounds(mapml, native.zoom);
             this.layerBounds = this._getLayerBounds(mapml);
             L.extend(this.options, this.zoomBounds);
           }
-          this.addData(mapml, nativeCS, nativeZoom);
+          this.addData(mapml, native.cs, native.zoom);
           if(this._staticFeature){
             this._resetFeatures(this._clampZoom(this.options._leafletLayer._map.getZoom()));
 
@@ -304,8 +308,17 @@
 
       onAdd: function(map){
         L.FeatureGroup.prototype.onAdd.call(this, map);
-        map.on("popupopen", this._attachSkipButtons, this);
+        if(this._mapmlFeatures)map.on("featurepagination", this.showPaginationFeature, this);
         this._updateTabIndex();
+      },
+
+      onRemove: function(map){
+        L.FeatureGroup.prototype.onRemove.call(this, map);
+        if(this._mapmlFeatures){
+          map.off("featurepagination", this.showPaginationFeature, this);
+          delete this._mapmlFeatures;
+        }
+        L.DomUtil.remove(this._container);
       },
 
       getEvents: function(){
@@ -338,97 +351,14 @@
         }
       },
 
-      _attachSkipButtons: function(e){
-        if(!e.popup._source._path) return;
-        if(!e.popup._container.querySelector('div[class="mapml-focus-buttons"]')){
-          //add when popopen event happens instead
-          let div = L.DomUtil.create("div", "mapml-focus-buttons");
-
-          // creates |< button, focuses map
-          let mapFocusButton = L.DomUtil.create('a',"mapml-popup-button", div);
-          mapFocusButton.href = '#';
-          mapFocusButton.role = "button";
-          mapFocusButton.title = "Focus Map";
-          mapFocusButton.innerHTML = '|&#10094;';
-          L.DomEvent.disableClickPropagation(mapFocusButton);
-          L.DomEvent.on(mapFocusButton, 'click', L.DomEvent.stop);
-          L.DomEvent.on(mapFocusButton, 'click', this._skipBackward, this);
-
-          // creates < button, focuses previous feature, if none exists focuses the current feature
-          let previousButton = L.DomUtil.create('a', "mapml-popup-button", div);
-          previousButton.href = '#';
-          previousButton.role = "button";
-          previousButton.title = "Previous Feature";
-          previousButton.innerHTML = "&#10094;";
-          L.DomEvent.disableClickPropagation(previousButton);
-          L.DomEvent.on(previousButton, 'click', L.DomEvent.stop);
-          L.DomEvent.on(previousButton, 'click', this._previousFeature, e.popup);
-
-          // static feature counter that 1/1
-          let featureCount = L.DomUtil.create("p", "mapml-feature-count", div), currentFeature = 1;
-          featureCount.innerText = currentFeature+"/1";
-          //for(let feature of e.popup._source._path.parentNode.children){
-          //  if(feature === e.popup._source._path)break;
-          //  currentFeature++;
-          //}
-          //featureCount.innerText = currentFeature+"/"+e.popup._source._path.parentNode.childElementCount;
-
-          // creates > button, focuses next feature, if none exists focuses the current feature
-          let nextButton = L.DomUtil.create('a', "mapml-popup-button", div);
-          nextButton.href = '#';
-          nextButton.role = "button";
-          nextButton.title = "Next Feature";
-          nextButton.innerHTML = "&#10095;";
-          L.DomEvent.disableClickPropagation(nextButton);
-          L.DomEvent.on(nextButton, 'click', L.DomEvent.stop);
-          L.DomEvent.on(nextButton, 'click', this._nextFeature, e.popup);
-          
-          // creates >| button, focuses map controls
-          let controlFocusButton = L.DomUtil.create('a',"mapml-popup-button", div);
-          controlFocusButton.href = '#';
-          controlFocusButton.role = "button";
-          controlFocusButton.title = "Focus Controls";
-          controlFocusButton.innerHTML = '&#10095;|';
-          L.DomEvent.disableClickPropagation(controlFocusButton);
-          L.DomEvent.on(controlFocusButton, 'click', L.DomEvent.stop);
-          L.DomEvent.on(controlFocusButton, 'click', this._skipForward, this);
-      
-          let divider = L.DomUtil.create("hr");
-          divider.style.borderTop = "1px solid #bbb";
-
-          e.popup._content.appendChild(divider);
-          e.popup._content.appendChild(div);
+      showPaginationFeature: function(e){
+        if(this.options.query && this._mapmlFeatures.querySelectorAll("feature")[e.i]){
+          let feature = this._mapmlFeatures.querySelectorAll("feature")[e.i];
+          this.clearLayers();
+          this.addData(feature, this.options.nativeCS, this.options.nativeZoom);
+          e.popup._navigationBar.querySelector("p").innerText = (e.i + 1) + "/" + this.options._leafletLayer._totalFeatureCount;
+          e.popup._content.querySelector("iframe").srcdoc = `<meta http-equiv="content-security-policy" content="script-src 'none';">` + feature.querySelector("properties").innerHTML;
         }
-
-        // When popup is open, what gets focused with tab needs to be done using JS as the DOM order is not in an accessibility friendly manner
-        function focusFeature(focusEvent){
-          if(focusEvent.originalEvent.path[0].title==="Focus Controls" && +focusEvent.originalEvent.keyCode === 9){
-            L.DomEvent.stop(focusEvent);
-            e.popup._source._path.focus();
-          } else if(focusEvent.originalEvent.shiftKey && +focusEvent.originalEvent.keyCode === 9){
-            e.target.closePopup(e.popup);
-            L.DomEvent.stop(focusEvent);
-            e.popup._source._path.focus();
-          }
-        }
-
-        function removeHandlers(removeEvent){
-          if (removeEvent.popup === e.popup){
-            e.target.off("keydown", focusFeature);
-            e.target.off("popupclose", removeHandlers);
-          }
-        }
-        // e.target = this._map
-        // Looks for keydown, more specifically tab and shift tab
-        e.target.on("keydown", focusFeature);
-
-        // if popup closes then the focusFeature handler can be removed
-        e.target.on("popupclose", removeHandlers);
-      },
-
-      _skipBackward: function(e){
-        this._map.closePopup();
-        this._map._container.focus();
       },
 
       _previousFeature: function(e){
@@ -448,10 +378,13 @@
           this._source._path.focus();
         }
       },
-          
-      _skipForward: function(e){
-        this._map.closePopup();
-        this._map._controlContainer.focus();
+
+      _getNativeVariables: function(mapml){
+        let nativeZoom = mapml.querySelector("meta[name=zoom]") && 
+            +M.metaContentToObject(mapml.querySelector("meta[name=zoom]").getAttribute("content")).value || 0;
+        let nativeCS = mapml.querySelector("meta[name=cs]") && 
+            M.metaContentToObject(mapml.querySelector("meta[name=cs]").getAttribute("content")).content || "GCRS";
+        return {zoom:nativeZoom, cs: nativeCS};
       },
 
       _handleMoveEnd : function(){
@@ -1762,7 +1695,22 @@
           map.removeLayer(this._templates[i].layer);
         }
       }
-    }
+    },
+
+    _previousFeature: function(e){
+      if(this._count + -1 >= 0){
+        this._count--;
+        this._map.fire("featurepagination", {i: this._count, popup: this});
+      }
+    },
+    
+    _nextFeature: function(e){
+      if(this._count + 1 < this._source._totalFeatureCount){
+        this._count++;
+        this._map.fire("featurepagination", {i: this._count, popup: this});
+      }
+    },
+
   });
   var templatedLayer = function(templates, options) {
     // templates is an array of template objects
@@ -2480,7 +2428,7 @@
           setTimeout(() => {
             map.fire('checkdisabled');
           }, 0);
-          map.on("popupopen", this._focusPopup, this);
+          map.on("popupopen", this._attachSkipButtons, this);
       },
 
       _validProjection : function(map){
@@ -2585,6 +2533,7 @@
           if (this._templatedLayer) {
               map.removeLayer(this._templatedLayer);
           }
+          map.off("popupopen", this._attachSkipButtons);
       },
       getZoomBounds: function () {
           var ext = this._extent;
@@ -3445,10 +3394,117 @@
             return this._templatedLayer._queries;
           }
       },
-      _focusPopup: function(e){
-        let content = e.popup._container.getElementsByClassName("mapml-popup-content")[0];
+      _attachSkipButtons: function(e){
+        let popup = e.popup, map = e.target, layer, path,
+            content = popup._container.getElementsByClassName("mapml-popup-content")[0];
+
         content.setAttribute("tabindex", "-1");
         content.focus();
+        popup._count = 0;
+
+        if(popup._source._eventParents){ // check if the popup is for a feature or query
+          layer = popup._source._eventParents[Object.keys(popup._source._eventParents)[0]]; // get first parent of feature, there should only be one
+          path = popup._source._path;
+        } else {
+          layer = popup._source._templatedLayer;
+        }
+
+        if(popup._container.querySelector('div[class="mapml-focus-buttons"]')){
+          L.DomUtil.remove(popup._container.querySelector('div[class="mapml-focus-buttons"]'));
+          L.DomUtil.remove(popup._container.querySelector('hr'));
+        }
+        //add when popopen event happens instead
+        let div = L.DomUtil.create("div", "mapml-focus-buttons");
+
+        // creates |< button, focuses map
+        let mapFocusButton = L.DomUtil.create('a',"mapml-popup-button", div);
+        mapFocusButton.href = '#';
+        mapFocusButton.role = "button";
+        mapFocusButton.title = "Focus Map";
+        mapFocusButton.innerHTML = '|&#10094;';
+        L.DomEvent.disableClickPropagation(mapFocusButton);
+        L.DomEvent.on(mapFocusButton, 'click', L.DomEvent.stop);
+        L.DomEvent.on(mapFocusButton, 'click', (e)=>{
+          map.closePopup();
+          map._container.focus();
+        }, popup);
+
+        // creates < button, focuses previous feature, if none exists focuses the current feature
+        let previousButton = L.DomUtil.create('a', "mapml-popup-button", div);
+        previousButton.href = '#';
+        previousButton.role = "button";
+        previousButton.title = "Previous Feature";
+        previousButton.innerHTML = "&#10094;";
+        L.DomEvent.disableClickPropagation(previousButton);
+        L.DomEvent.on(previousButton, 'click', L.DomEvent.stop);
+        L.DomEvent.on(previousButton, 'click', layer._previousFeature, popup);
+
+        // static feature counter that 1/1
+        let featureCount = L.DomUtil.create("p", "mapml-feature-count", div),
+            totalFeatures = this._totalFeatureCount ? this._totalFeatureCount : 1;
+        featureCount.innerText = (popup._count + 1)+"/"+totalFeatures;
+        //for(let feature of e.popup._source._path.parentNode.children){
+        //  if(feature === e.popup._source._path)break;
+        //  currentFeature++;
+        //}
+        //featureCount.innerText = currentFeature+"/"+e.popup._source._path.parentNode.childElementCount;
+
+        // creates > button, focuses next feature, if none exists focuses the current feature
+        let nextButton = L.DomUtil.create('a', "mapml-popup-button", div);
+        nextButton.href = '#';
+        nextButton.role = "button";
+        nextButton.title = "Next Feature";
+        nextButton.innerHTML = "&#10095;";
+        L.DomEvent.disableClickPropagation(nextButton);
+        L.DomEvent.on(nextButton, 'click', L.DomEvent.stop);
+        L.DomEvent.on(nextButton, 'click', layer._nextFeature, popup);
+        
+        // creates >| button, focuses map controls
+        let controlFocusButton = L.DomUtil.create('a',"mapml-popup-button", div);
+        controlFocusButton.href = '#';
+        controlFocusButton.role = "button";
+        controlFocusButton.title = "Focus Controls";
+        controlFocusButton.innerHTML = '&#10095;|';
+        L.DomEvent.disableClickPropagation(controlFocusButton);
+        L.DomEvent.on(controlFocusButton, 'click', L.DomEvent.stop);
+        L.DomEvent.on(controlFocusButton, 'click', (e) => {
+          map.closePopup();
+          map._controlContainer.focus();
+        }, popup);
+    
+        let divider = L.DomUtil.create("hr");
+        divider.style.borderTop = "1px solid #bbb";
+
+        popup._navigationBar = div;
+        popup._content.appendChild(divider);
+        popup._content.appendChild(div);
+      
+
+        if(path) {
+          // e.target = this._map
+          // Looks for keydown, more specifically tab and shift tab
+          map.on("keydown", focusFeature);
+          // if popup closes then the focusFeature handler can be removed
+          map.on("popupclose", removeHandlers);
+        }
+        // When popup is open, what gets focused with tab needs to be done using JS as the DOM order is not in an accessibility friendly manner
+        function focusFeature(focusEvent){
+          if(focusEvent.originalEvent.path[0].title==="Focus Controls" && +focusEvent.originalEvent.keyCode === 9){
+            L.DomEvent.stop(focusEvent);
+            path.focus();
+          } else if(focusEvent.originalEvent.shiftKey && +focusEvent.originalEvent.keyCode === 9){
+            map.closePopup(popup);
+            L.DomEvent.stop(focusEvent);
+            path.focus();
+          }
+        }
+
+        function removeHandlers(removeEvent){
+          if (removeEvent.popup === popup){
+            map.off("keydown", focusFeature);
+            map.off("popupclose", removeHandlers);
+          }
+        }
       },
   });
   var mapMLLayer = function (url, node, options) {
@@ -3792,77 +3848,70 @@
 
         let point = this._map.project(e.latlng),
             scale = this._map.options.crs.scale(this._map.getZoom()),
-            pcrsClick = this._map.options.crs.transformation.untransform(point,scale);
+            pcrsClick = this._map.options.crs.transformation.untransform(point,scale),
+            contenttype;
 
         if(template.layerBounds.contains(pcrsClick)){
-          fetch(L.Util.template(template.template, obj),{redirect: 'follow'}).then(
-              function(response) {
-                if (response.status >= 200 && response.status < 300) {
-                  return Promise.resolve(response);
-                } else {
-                  console.log('Looks like there was a problem. Status Code: ' + response.status);
-                  return Promise.reject(response);
-                }
-              }).then(function(response) {
-                var contenttype = response.headers.get("Content-Type");
-                if ( contenttype.startsWith("text/mapml")) {
-                  return handleMapMLResponse(response, e.latlng);
-                } else {
-                  return handleOtherResponse(response, layer, e.latlng);
-                }
-              }).catch(function(err) {
-                // no op
-              });
+          fetch(L.Util.template(template.template, obj), { redirect: 'follow' }).then((response) => {
+            contenttype = response.headers.get("Content-Type");
+            if (response.status >= 200 && response.status < 300) {
+              return response.text();
+            } else {
+              throw new Error(response.status);
+            }
+          }).then((mapml) => {
+            if (contenttype.startsWith("text/mapml")) {
+              return handleMapMLResponse(mapml, e.latlng);
+            } else {
+              return handleOtherResponse(mapml, layer, e.latlng);
+            }
+          }).catch((err) => {
+            console.log('Looks like there was a problem. Status: ' + err.message);
+          });
         }
-        function handleMapMLResponse(response, loc) {
-            return response.text().then(mapml => {
-                // bind the deprojection function of the layer's crs 
-                var _unproject = L.bind(crs.unproject, crs);
-                function _coordsToLatLng(coords) {
-                    return _unproject(L.point(coords));
-                }
-                var parser = new DOMParser(),
-                    mapmldoc = parser.parseFromString(mapml, "application/xml"),
-                    f = M.mapMlFeatures(mapmldoc, {
-                    // pass the vector layer a renderer of its own, otherwise leaflet
-                    // puts everything into the overlayPane
-                    renderer: L.svg(),
-                    // pass the vector layer the container for the parent into which
-                    // it will append its own container for rendering into
-                    pane: container,
-                    color: 'yellow',
-                    // instead of unprojecting and then projecting and scaling,
-                    // a much smarter approach would be to scale at the current
-                    // zoom
-                    coordsToLatLng: _coordsToLatLng,
-                    imagePath: M.detectImagePath(map.getContainer())
-                });
-                f.addTo(map);
+        function handleMapMLResponse(mapml, loc) {
+          var parser = new DOMParser(),
+              mapmldoc = parser.parseFromString(mapml, "application/xml"),
+              f = M.mapMlFeatures(mapmldoc, {
+              // pass the vector layer a renderer of its own, otherwise leaflet
+              // puts everything into the overlayPane
+              renderer: L.svg(),
+              // pass the vector layer the container for the parent into which
+              // it will append its own container for rendering into
+              pane: container,
+              //color: 'yellow',
+              // instead of unprojecting and then projecting and scaling,
+              // a much smarter approach would be to scale at the current
+              // zoom
+              projection: map.options.projection,
+              _leafletLayer: layer,
+              imagePath: M.detectImagePath(map.getContainer()),
+              query: true,
+          });
+          f.addTo(map);
 
-                let div = L.DomUtil.create("div", "mapml-popup-content"),
-                    c = L.DomUtil.create("iframe");
-                c.csp = "script-src 'none'";
-                c.style = "border: none";
-                c.srcdoc = mapmldoc.querySelector('feature properties').innerHTML;
-                div.appendChild(c);
-                // passing a latlng to the popup is necessary for when there is no
-                // geometry / null geometry
-                layer.bindPopup(div, popupOptions).openPopup(loc);
-                layer.on('popupclose', function() {
-                    map.removeLayer(f);
-                });
-            });
+          let div = L.DomUtil.create("div", "mapml-popup-content"),
+              c = L.DomUtil.create("iframe");
+          c.style = "border: none";
+          c.srcdoc = `<meta http-equiv="content-security-policy" content="script-src 'none';">` + mapmldoc.querySelector('feature properties').innerHTML;
+          div.appendChild(c);
+          // passing a latlng to the popup is necessary for when there is no
+          // geometry / null geometry
+          layer._totalFeatureCount = mapmldoc.querySelectorAll("feature").length;
+          layer.bindPopup(div, popupOptions).openPopup(loc);
+          layer.on('popupclose', function() {
+              map.removeLayer(f);
+          });
+          f.showPaginationFeature({i: 0, popup: layer._popup});
+
         }
-        function handleOtherResponse(response, layer, loc) {
-            return response.text().then(text => {
-                let div = L.DomUtil.create("div", "mapml-popup-content"),
-                    c = L.DomUtil.create("iframe");
-                c.csp = "script-src 'none'";
-                c.style = "border: none";
-                c.srcdoc = text;
-                div.appendChild(c);
-                layer.bindPopup(div, popupOptions).openPopup(loc);
-            });
+        function handleOtherResponse(text, layer, loc) {
+          let div = L.DomUtil.create("div", "mapml-popup-content"),
+              c = L.DomUtil.create("iframe");
+          c.style = "border: none";
+          c.srcdoc = `<meta http-equiv="content-security-policy" content="script-src 'none';">` + text;
+          div.appendChild(c);
+          layer.bindPopup(div, popupOptions).openPopup(loc);
         }
       }
   });
