@@ -324,15 +324,15 @@
     },
     {
       "bing-maps-api": {
-        "title": "Bing embed",
-        "desc": "Bing Maps embeds",
+        "title": "Bing API",
+        "desc": "Bing Maps Control API",
         "type": "api"
       }
     },
     {
       "bing-maps-embed": {
-        "title": "Bing API",
-        "desc": "Bing Maps Control API",
+        "title": "Bing embed",
+        "desc": "Bing Maps embeds",
         "type": "embed"
       }
     },
@@ -345,15 +345,16 @@
     },
     {
       "google-maps-api": {
-        "title": "Google embed",
-        "desc": "Google Maps embeds",
+        "title": "Google API",
+        "desc": "Google Maps Control API",
         "type": "api"
       }
     },
     {
       "google-maps-embed": {
-        "title": "Google API",
-        "desc": "Google Maps Control API",
+
+        "title": "Google embed",
+        "desc": "Google Maps embeds",
         "type": "embed"
       }
     },

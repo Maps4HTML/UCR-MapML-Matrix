@@ -120,6 +120,14 @@
       /* scroll-padding-top: 2rem; */
     }
 
+    body {
+      scroll-snap-type: y mandatory;
+    }
+
+    tr {
+      scroll-snap-align: start end;  
+    }
+
     .external_link::after,
     a[href^="http"]::after {
       content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='cornflowerblue' width='14' height='14' viewBox='0 0 12 12'%3E%3Cpath d='M2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10M6.2,2 10,2 10,5.8 8.5,4.3 6.4,6.5 5.5,5.5 7.6,3.4'/%3E%3C/svg%3E");
@@ -130,7 +138,67 @@
       background-color: antiquewhite;
       opacity: 0.75;
     }
-  </style>
+
+
+    /* notes */
+    span.note {
+      cursor: help;
+      /* Will either add a pointer with a question mark or just a question mark */
+      position: relative;
+      /* Relative to the span elements */
+    }
+
+    .note::before, 
+    .note::after {
+      position: absolute;
+      left: 50%;
+      display: block;
+      opacity: 0;
+      z-index: -999;
+      /* This ensures that the tooltips are not visible without user interaction */
+    }
+
+    .note:hover::before,
+    .note:focus::before,
+    .note:hover::after,
+    .note:focus::after {
+      /* Select bother hover and focus to accomodate users without a keyboard */
+      opacity: 1;
+      z-index: 999;
+    }
+
+
+    /* --- Creates a triangle shape with borders ---
+    https://css-tricks.com/animation-css-triangles-work/ */
+    .note::before {
+      content: "";
+      border-style: solid;
+      border-width: 1em 0.75em 0 0.75em;
+      /* Creates a triangle with the point facing down */
+      /* The thinner the left and right borders the sharper the triangle */
+      border-color: rgb(18, 88, 110) transparent transparent transparent;
+      bottom: 100%;
+      /* Bump it up above the span element */
+      margin-left: -0.5em;
+      /* Center the arrow, given that it has been moved left 50% */
+    }
+
+    .note:after {
+      content: attr(data-tip);
+      /* This is where the magic happens. See for more details: 
+      http://tympanus.net/codrops/css_reference/attr/ */
+      background-color: rgb(18, 88, 110);
+      border-radius: 0.25em;
+      bottom: 170%;
+      width: 13.5em;
+      padding: 1em 0.5em;
+      margin-left: -6.75em;
+      /* margin-left is negative and half the width to center the bubble */
+      color: white;
+      text-align: center;
+      font-size: 0.75em;
+    }
+    </style>
 
   <script type="module" src="./main.js"></script>
 
