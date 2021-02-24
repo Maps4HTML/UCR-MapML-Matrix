@@ -114,12 +114,24 @@ export class UCR_Processor {
       for(let cap_imp of cap_imps) {
         Object.keys(cap_imp).forEach(key=>{
           const val = cap_imp[key];
-          let td = document.createElement(`td`);
-          let val_str = val.support;
-          if (val_str) {
-            td.classList.add(val_str.replace(` `, `_`));
+          const td = document.createElement(`td`);
+          const support_status = val.support;
+          if (support_status) {
+            td.classList.add(support_status.replace(` `, `_`));
           }
-          td.textContent = val_str;
+          td.textContent = support_status;
+
+          // // add note if available
+          // const notes = val.notes;
+          // if (notes) {
+          //   const note_el = document.createElement(`span`);
+          //   note_el.classList.add(`note`);
+          //   note_el.textContent = notes;
+          //   td.appendChild(note_el);
+          //   td.classList.add(`annotated`);
+          // }
+
+
           tr.appendChild(td);
         });
       }
