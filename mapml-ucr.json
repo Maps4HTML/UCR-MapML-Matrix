@@ -270,7 +270,7 @@
       }
     },
     "use-case-set-layer-visibility": {
-      "title": "Control which layers are currently visible &amp; which can be hidden by the user",
+      "title": "Control which layers are currently visible & which can be hidden by the user",
       "index": "3.3.6",
       "parent_id": "application-use-cases",
       "capabilities": {}
@@ -294,7 +294,7 @@
       }
     },
     "use-case-drag-and-drop": {
-      "title": "Enable drag &amp; drop for map layers",
+      "title": "Enable drag & drop for map layers",
       "index": "3.3.9",
       "parent_id": "application-use-cases",
       "capabilities": {}
