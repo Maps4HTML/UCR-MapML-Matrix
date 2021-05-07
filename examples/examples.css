@@ -61,11 +61,10 @@ body {
   max-width: 100%;
   height: 450px;
   width: 600px;
-  margin: 0 auto;
+  margin: 1rem auto;
   display: block;
   border: 0;
   border-radius: 2px;
-  padding: 1rem 0;
 }
 /* https://github.com/Maps4HTML/Web-Map-Custom-Element/issues/350#issuecomment-834466757 */
 [is="web-map"]:defined, mapml-viewer:defined {
