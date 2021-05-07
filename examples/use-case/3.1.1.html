@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Display an interactive map (3.1.1)</title>
+    <script type="module" src="../../dist/mapml-viewer.js"></script>
+    <link rel="stylesheet" href="../examples.css">
+  </head>
+  <body>
+    
+    <h1>
+      Example for
+      <a href="https://maps4html.org/HTML-Map-Element-UseCases-Requirements/#use-case-create-map">
+        Use Case: Display an interactive map
+      </a>
+    </h1>
+      
+    <mapml-viewer projection="OSMTILE" zoom="2" lat="45" lon="-90">
+      <layer- label="OpenStreetMap" src="https://geogratis.gc.ca/mapml/en/osmtile/osm/" checked></layer->
+    </mapml-viewer>
+    
+    <code class="html-example">
+&lt;mapml-viewer projection="OSMTILE" zoom="2" lat="45" lon="-90"&gt;
+  &lt;layer- label="OpenStreetMap" src="https://geogratis.gc.ca/mapml/en/osmtile/osm/" checked&gt;&lt;/layer-&gt;
+&lt;/mapml-viewer&gt;
+    </code>
+    
+  </body>
+</html>
