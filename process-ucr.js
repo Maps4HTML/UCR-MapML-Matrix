@@ -121,15 +121,15 @@ export class UCR_Processor {
           }
           td.textContent = support_status;
 
-          // // add note if available
-          // const notes = val.notes;
-          // if (notes) {
-          //   const note_el = document.createElement(`span`);
-          //   note_el.classList.add(`note`);
-          //   note_el.textContent = notes;
-          //   td.appendChild(note_el);
-          //   td.classList.add(`annotated`);
-          // }
+          // add note if available
+          const notes = val.notes;
+          if (notes) {
+            const note_el = document.createElement(`span`);
+            note_el.classList.add(`note`);
+            note_el.innerHTML = notes;
+            td.appendChild(note_el);
+            td.classList.add(`annotated`);
+          }
 
 
           tr.appendChild(td);
