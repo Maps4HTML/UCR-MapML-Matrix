@@ -151,6 +151,16 @@
     .annotated {
       position: relative;
       cursor: help;
+      padding: 1rem;
+    }
+    
+    .annotated::after {
+      content: "🛈";
+      position: absolute;
+      top: 10px;
+      right: 5px;
+      line-height: 0;
+      font-size: 1rem;
     }
     
     td:not(.annotated) {
